@@ -8,6 +8,13 @@ import javax.swing.SpringLayout;
 public class Jeu {
 
     private static Scanner _scan = new Scanner(System.in);
+    /**
+     * @param compteurIA
+     * @param compteurplayer
+     * @param joueur
+     * @param mode
+     * @return
+     */
     public int Jouer( Integer compteurIA, Integer compteurplayer, Integer joueur, String mode) {
 
         joueur = 0;
@@ -76,5 +83,6 @@ public static boolean match_nul (int compteurIA, int compteurplayer)
     {
         return false;
     }
+}
 }
 }
