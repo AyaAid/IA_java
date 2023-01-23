@@ -1,8 +1,10 @@
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
 
+>>>>>>> fce11d3ebe8ffa16b4822ca4b7faddbcdb4a76dd
 public class App {
 
     public static void main(String[] args) throws Exception{
