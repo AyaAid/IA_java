@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 import model.Grille;
 
+
 public class App {
     private static Scanner _scan;
 
     public static void main(String[] args) throws Exception{
-        while(true){
+  
             afficherMenu();
             switch (_scan.nextLine()) {
                 case "1":
@@ -25,7 +26,7 @@ public class App {
                     return;
                 }
                 
-            }
+            
     }
 
     static {

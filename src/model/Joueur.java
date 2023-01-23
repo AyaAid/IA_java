@@ -10,7 +10,7 @@ public class Joueur {
     private String joueur;
     private String couleur;
 
-    public joueur(String joueur, String couleur) {
+    public void joueur(String joueur, String couleur) {
         this.joueur = joueur;
         this.couleur = couleur;
     }
