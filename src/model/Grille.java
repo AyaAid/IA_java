@@ -27,6 +27,27 @@ public class Grille {
         System.out.println();
 
     }
+
+    public static void addJeton(String color, int column){
+        if(column > 1 || column > columns){
+            System.out.println("La colonne n'existe pas");
+        }
+        else{
+            for(int i = rows - 1; i >= 0; i--){
+                if(grid.get(i).get(column-1) == null){
+                    grid.get(i).set(column-1, color);
+                    break;
+                }
+            }
+        }
+    }
+
+    public boolean colonnePleine(int column) {
+        if (grid.get(0).get(column) != null) {
+            return true;
+        }
+        return false;
+    }
     
     public boolean grillePleine() {
         for (int i = 0; i < grid.size(); i++) {
