@@ -74,3 +74,15 @@ public class Jeu {
     
     }
 }
+
+public static boolean match_nul (int compteurIA, int compteurplayer)
+{
+    if (compteurIA == 21 && compteurplayer == 21)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
