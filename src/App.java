@@ -4,11 +4,27 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class App {
+    private static Scanner _scan;
 
     public static void main(String[] args) throws Exception{
-        afficherMenu();
+        while(true){
+            afficherMenu();
+            switch (_scan.nextLine()) {
+                case "1":
+                     //  JouerSolo();
+                    break;
+                case "2":
+                       // JoueràDeux();
+                    break;
+                case "3":
+                       // Classement();
+                    break;
+                case "q":
+                    return;
+                }
+                
+            }
     }
-    private static Scanner _scan;
 
     static {
         _scan = new Scanner(System.in);
