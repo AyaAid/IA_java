@@ -18,7 +18,7 @@ public class App {
     public App() {
     }
     
-private static void afficherMenu() {
+public static void afficherMenu() {
     ArrayList<String> menus = new ArrayList<>();
     menus.add("          ⥤ MENU ⥢");
     menus.add("1-   ⌈    Jouer solo !  ⌋");
