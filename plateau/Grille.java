@@ -4,16 +4,21 @@ import java.util.*;
 
 
 public class Grille {
-
-    private String[][] grille = new String[6][7];
-
-    public void afficherGrille() {
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 7; j++) {
-                System.out.print(grille[i][j]);
+        public static void main(String[] args) {
+            ArrayList<ArrayList<String>> tableau = new ArrayList<ArrayList<String>>();
+            for (int y = 0; y < 6; y++) {
+                ArrayList<String> collone = new ArrayList<String>();
+            for (int x = 0; x < 1; x++) {
+                collone.add("|----|----|----|----|----|----|----|");
+                }
+                tableau.add(collone);
             }
-            System.out.println();
+    
+            for (ArrayList<String> ligne : tableau) {
+                for (String caseJeu : ligne) {
+                    System.out.print(caseJeu + " ");
+                }
+                System.out.println();
+            }
         }
-    }
-
     }
