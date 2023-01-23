@@ -18,7 +18,7 @@ public class App {
     public App() {
     }
     
-private static void afficherMenu() {
+public static void afficherMenu() {
     ArrayList<String> menus = new ArrayList<>();
     menus.add("          \u001B[4m⥤ MENU ⥢\u001B[0m");
     menus.add("\u001B[32m1-   ⌈    Jouer solo !  ⌋\u001B[0m");
