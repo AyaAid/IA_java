@@ -4,35 +4,37 @@ import java.util.*;
 
 
 public class Grille {
+    private int rows = 7;
+    private int columns = 6;
+    ArrayList<ArrayList<String>> grid = new ArrayList<ArrayList<String>>();
 
-    public static void afficherGrille(){
-            ArrayList<ArrayList<String>> tableau = new ArrayList<ArrayList<String>>();
-            System.out.println("   1     2     3     4     5     6     7");
-            for (int y = 0; y < 6; y++) {
-                ArrayList<String> collone = new ArrayList<String>();
-            for (int x = 0; x < 1; x++) {
-                collone.add("| (1) | (2) | (3) | (4) | (5) | (6) | (7) |");
-                }
-                tableau.add(collone);
+    public void afficherGrille(){
+        for (int i = 0; i < rows; i++) {
+            grid.add(new ArrayList<String>(columns));
             }
-    
-            for (ArrayList<String> ligne : tableau) {
-                for (String caseJeu : ligne) {
-                    System.out.print(caseJeu + " ");
-                }
-                System.out.println();
+        System.out.println("   1     2     3     4     5     6     7");
+        for(int c = 1; c <= columns; c++){
+            System.out.println(c + "  ");
+        }
+        System.out.println();
+
+        for(int i= 0; i < grid.size(); i++){
+            for(int j = 0; j < grid.get(i).size(); j++){
+                System.out.print("|----|");
+            }    
+            System.out.println();
             }
+
         }
     
-
-    // public boolean grillePleine() {
-    //     for (int i = 0; i < rows; i++) {
-    //         for (int j = 0; j < columns; j++) {
-    //             if (grid[i][j] == null) {
-    //                 return false;
-    //             }
-    //         }
-    //     }
-    //     return true;
-    // }
+    public boolean grillePleine() {
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid.get(i).size(); j++) {
+                if (grid.get(i).get(j) == null) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }

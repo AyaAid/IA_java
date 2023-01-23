@@ -3,6 +3,8 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.SpringLayout;
 
+import model.Grille;
+
 //on clique sur le menu pour sélectionner le mode
 
 public class Jeu {
@@ -24,7 +26,7 @@ public class Jeu {
 
 
         //tant que la grille n'est pas complete("grille" = le structure du plateau   ==   "grillefull" = plateau complet)
-        while (grille != grillefull ){
+        while (!Grille.grillePleine() ){
             // if (mode == "solo"){
                 
             // }
