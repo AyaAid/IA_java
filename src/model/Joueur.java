@@ -4,6 +4,7 @@ public class Joueur {
 
     private String joueur;
     private String couleur;
+    private String symbole;
 
     public Joueur(String joueur, String couleur) {
         this.joueur = joueur;
@@ -16,5 +17,13 @@ public class Joueur {
 
     public String getCouleur() {
         return couleur;
+    }
+
+    public String getSymbole() {
+        return symbole;
+    }
+
+    public void setSymbole(String symbole) {
+        this.symbole = symbole;
     }
 }
