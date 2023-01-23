@@ -21,10 +21,9 @@ public class App {
 private static void afficherMenu() {
     ArrayList<String> menus = new ArrayList<>();
     menus.add("          ⥤ MENU ⥢");
-    menus.add("1-   ⌈     Jouez !      ⌋");
-    menus.add("2-   ⌈    Classement    ⌋");
-    menus.add("3-   ⌈Choix des couleurs⌋");
-    menus.add("4-   ⌈    Difficulté    ⌋");
+    menus.add("1-   ⌈    Jouer solo !  ⌋");
+    menus.add("2-   ⌈   Jouer à deux   ⌋");
+    menus.add("3-   ⌈    Classement    ⌋");
     menus.add("q-   ⌈     Quitter      ⌋");
     Iterator<String> iterator = menus.iterator();
 
