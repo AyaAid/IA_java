@@ -1,90 +1,38 @@
 package model;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
-import javax.swing.SpringLayout;
-
-import model.Grille;
-
 //on clique sur le menu pour sélectionner le mode
 
 public class Jeu {
+    private Grille grid;
+    private Joueur joueur1;
+    private Joueur joueur2;
+    private int nombreJoueur;
+    private int move;
+    private Joueur currentPlayer;
 
     private static Scanner _scan = new Scanner(System.in);
-    /**
-     * @param compteurIA
-     * @param compteurplayer
-     * @param joueur
-     * @param mode
-     * @return
-     */
-    public int Jouer( Integer compteurIA, Integer compteurplayer, Integer joueur, String mode) {
 
-        joueur = 0;
-        compteurIA = 0;
-        compteurplayer = 0;
-        mode = "";
-
-
-        //tant que la grille n'est pas complete("grille" = le structure du plateau   ==   "grillefull" = plateau complet)
-        while (!Grille.grillePleine() ){
-            // if (mode == "solo"){
-                
-            // }
-            // else if (mode == "duo"){
-
-            // }
-            // else{
-            //     System.out.println("Tu dois écrire soit 'solo' soit 'duo' !");
-            // }
-            compteurIA = compteurIA + 1;
-            compteurplayer = compteurplayer + 1;
-            joueur = 0;
-            System.out.println("Start:");
-            //si c'est au joueur de jouer
-            if (joueur % 2 == 0) {
-                compteurIA = compteurIA + 1;
-                System.out.println("Le compteur de l'IA est à :" + compteurIA);
-            } 
-                //si c'est à l'ia de jouer        
-            else {
-                compteurplayer = compteurplayer + 1;
-                System.out.println("Ton compteur est à :" + compteurplayer);
-            }
-            
-            joueur = joueur + 1;
+    public void Jouer( int nombreJoueur, ArrayList name, ArrayList couleur) {
+        grid = new Grille();
+        joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0));
+        if(nombreJoueur == 2){
+            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1));
         }
-    
-        return Math.max(compteurIA, compteurplayer);
+        else{
+            if(Objects.equals(couleur.get(0), "❌")){
+                couleur.add("🟣");
+            } else{
+                couleur.add("❌");
+            }
+            joueur2 = new Joueur("IA", (String) couleur.get(1));
+        }
+        currentPlayer = joueur1;
     }
-    // public int gagner() {
-    
-    // }
-    // public int match_nul() {
-    
-    // }
-    // public int perdre() {
-    
-    // }
-
-    // private void nextPlayer() {
-    //     if (currentPlayer == player1) {
-    //         currentPlayer = player2;
-    //     } else {
-    //         currentPlayer = player1;
-    //     }
-    // }
 
 
-public static boolean match_nul (int compteurIA, int compteurplayer)
-{
-    if (compteurIA == 21 && compteurplayer == 21)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
 }
-}
-}
+
+
+

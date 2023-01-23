@@ -59,4 +59,26 @@ public class Grille {
         }
         return true;
     }
+
+    public boolean gagner(){
+        for(int i = 0; i < rows; i++){
+            for(int j = 0; j < columns; j++){
+                if(grid.get(i).get(j) != null){
+                    if(grid.get(i).get(j) == grid.get(i).get(j+1) && grid.get(i).get(j) == grid.get(i).get(j+2) && grid.get(i).get(j) == grid.get(i).get(j+3)){
+                        return true;
+                    }
+                    if(grid.get(i).get(j) == grid.get(i+1).get(j) && grid.get(i).get(j) == grid.get(i+2).get(j) && grid.get(i).get(j) == grid.get(i+3).get(j)){
+                        return true;
+                    }
+                    if(grid.get(i).get(j) == grid.get(i+1).get(j+1) && grid.get(i).get(j) == grid.get(i+2).get(j+2) && grid.get(i).get(j) == grid.get(i+3).get(j+3)){
+                        return true;
+                    }
+                    if(grid.get(i).get(j) == grid.get(i+1).get(j-1) && grid.get(i).get(j) == grid.get(i+2).get(j-2) && grid.get(i).get(j) == grid.get(i+3).get(j-3)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
