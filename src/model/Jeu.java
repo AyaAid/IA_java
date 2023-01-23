@@ -1,4 +1,4 @@
-package Jeu;
+package model;
 import java.util.Random;
 import java.util.Scanner;
 import javax.swing.SpringLayout;
@@ -34,7 +34,7 @@ public class Jeu {
         }
 
         //tant que la grille n'est pas complete("grille" = le structure du plateau   ==   "grillefull" = plateau complet)
-        while ((grille != grillefull )){
+        while (grille != grillefull ){
             // if (mode == "solo"){
                 
             // }
@@ -64,15 +64,23 @@ public class Jeu {
     
         return Math.max(compteurIA, compteurplayer);
     }
-    public int gagner() {
+    // public int gagner() {
     
-    }
-    public int match_nul() {
+    // }
+    // public int match_nul() {
     
-    }
-    public int perdre() {
+    // }
+    // public int perdre() {
     
-    }
+    // }
+
+    // private void nextPlayer() {
+    //     if (currentPlayer == player1) {
+    //         currentPlayer = player2;
+    //     } else {
+    //         currentPlayer = player1;
+    //     }
+    // }
 }
 
 public static boolean match_nul (int compteurIA, int compteurplayer)

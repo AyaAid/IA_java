@@ -1,10 +1,11 @@
-package IA_java.plateau;
+package model;
 
 import java.util.*;
 
 
 public class Grille {
-        public static void main(String[] args) {
+
+    public static void afficherGrille(){
             ArrayList<ArrayList<String>> tableau = new ArrayList<ArrayList<String>>();
             System.out.println("  1    2    3    4    5    6    7");
             for (int y = 0; y < 6; y++) {
@@ -22,4 +23,16 @@ public class Grille {
                 System.out.println();
             }
         }
-    }
+    
+
+    // public boolean grillePleine() {
+    //     for (int i = 0; i < rows; i++) {
+    //         for (int j = 0; j < columns; j++) {
+    //             if (grid[i][j] == null) {
+    //                 return false;
+    //             }
+    //         }
+    //     }
+    //     return true;
+    // }
+}
