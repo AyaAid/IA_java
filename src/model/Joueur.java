@@ -24,14 +24,7 @@ public class Joueur {
     }
 
    
-    public void enregistrer()throws IOException {
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("classement.csv", true)));
-        try{
-            pw.println(joueur);
-        } finally {
-            pw.close();
-        }
-    }
+
 
 
     
