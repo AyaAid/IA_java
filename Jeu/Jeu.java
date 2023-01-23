@@ -34,7 +34,7 @@ public class Jeu {
         }
 
         //tant que la grille n'est pas complete("grille" = le structure du plateau   ==   "grillefull" = plateau complet)
-        while ((grille != grillefull )){
+        while (grille != grillefull ){
             // if (mode == "solo"){
                 
             // }
@@ -72,5 +72,13 @@ public class Jeu {
     }
     public int perdre() {
     
+    }
+
+    private void nextPlayer() {
+        if (currentPlayer == player1) {
+            currentPlayer = player2;
+        } else {
+            currentPlayer = player1;
+        }
     }
 }
