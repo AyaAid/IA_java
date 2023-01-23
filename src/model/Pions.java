@@ -1,4 +1,4 @@
-package Pions;
+package model;
 
 public class Pions {
     

@@ -1,4 +1,4 @@
-package IA_java.plateau;
+package model;
 
 import java.util.*;
 
@@ -25,14 +25,14 @@ public class Grille {
         }
     
 
-    public boolean grillePleine() {
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                if (grid[i][j] == null) {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
+    // public boolean grillePleine() {
+    //     for (int i = 0; i < rows; i++) {
+    //         for (int j = 0; j < columns; j++) {
+    //             if (grid[i][j] == null) {
+    //                 return false;
+    //             }
+    //         }
+    //     }
+    //     return true;
+    // }
 }

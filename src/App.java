@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+import model.Grille;
+
 public class App {
     private static Scanner _scan;
 
@@ -14,7 +16,7 @@ public class App {
                      //  JouerSolo();
                     break;
                 case "2":
-                       // JoueràDeux();
+                       Grille.afficherGrille();
                     break;
                 case "3":
                        // Classement();
