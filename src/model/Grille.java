@@ -13,7 +13,7 @@ public class Grille {
         for (int i = 0; i < rows; i++) {
             grid.add(new ArrayList<String>(columns));
             }
-        System.out.println("   1     2     3     4     5     6     7");
+        System.out.println("\n   1     2     3     4     5     6     7");
         System.out.println();
         for(int c = 1; c <= columns; c++){
             System.out.println("  ");
@@ -48,7 +48,7 @@ public class Grille {
         }
         return false;
     }
-    
+
     public boolean grillePleine() {
         for (int i = 0; i < grid.size(); i++) {
             for (int j = 0; j < grid.get(i).size(); j++) {
