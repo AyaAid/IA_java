@@ -15,23 +15,6 @@ public class Jeu {
         compteurplayer = 0;
         mode = "";
 
-        String choix;
-        do {
-            App.afficherMenu();
-            choix = _scan.nextLine();
-            switch (choix) {
-                case "1":
-                    mode = "solo";
-                    System.out.println("yo");
-                    break;
-                case "2":
-                    mode = "duo";
-                    break;
-                default:
-                    System.out.println("Choix incorrect!");
-                    break;
-            }
-        }
 
         //tant que la grille n'est pas complete("grille" = le structure du plateau   ==   "grillefull" = plateau complet)
         while (grille != grillefull ){
@@ -81,7 +64,7 @@ public class Jeu {
     //         currentPlayer = player1;
     //     }
     // }
-}
+
 
 public static boolean match_nul (int compteurIA, int compteurplayer)
 {
@@ -93,4 +76,5 @@ public static boolean match_nul (int compteurIA, int compteurplayer)
     {
         return false;
     }
+}
 }
