@@ -3,6 +3,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 17e0cfd48f269b7748265cc0aeac05a792a3c968
 public class App {
 
     public static void main(String[] args) throws Exception{
