@@ -25,15 +25,23 @@ public class Classement {
     }
 
     public void afficherClassement() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("classement.csv"));
-        try{
-            String line = br.readLine();
-            while(line != null){
-                System.out.println(line);
-                line = br.readLine();
-            }
-        } finally {
-            br.close();
+        try (BufferedReader br = new BufferedReader(new FileReader("classement.csv"))) {
+            int comparescore = 0;
+                String comparename = "";
+                String line = br.readLine();
+                while (line != null) {
+                    String[] parts = line.split(";");
+                    String name = parts[0];
+                    int score = Integer.parseInt(parts[1]);
+                    if(score < comparescore){
+                        comparescore = score;
+                        comparename = name;
+                    }
+                    line = br.readLine();
+                }
+                System.out.println("Le meilleur score est de " + comparescore + " par " + comparename);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
     }
 }
