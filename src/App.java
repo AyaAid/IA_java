@@ -13,24 +13,26 @@ public class App {
 
     public static void main(String[] args) throws Exception{
         while (true) {
-            Menu.afficherMenu("principale");
+            afficherMenu();
             switch (_scan.nextLine()) {
                 case "1":
                         System.out.println("\nVous avez choisi de jouer en solo\n");
-                        Menu.afficherMenu("couleur");
-                    break;
+                        SelectionCouleur();
+                        SelectionSymbole();
+                        NomduJoueurSolo();
+                    return;
                 case "2":
-                        Menu.afficherMenu("symbole");
-                    break;
+                        SelectionCouleur();
+                        SelectionSymbole();
+                        NomduJoueur();
+                    return;
                 case "3":
-                        Menu.afficherMenu("niveau");
                         System.out.println("Vous avez choisi de voir le classement");
-                    break;
+                    return;
                 case "4":
                         System.out.println("Vous avez choisi de quitter le jeu");
                     return;
                 default:
-                        System.out.println("Veuillez choisir une option valide");       
                         System.out.println("Veuillez choisir une option valide");       
                     break;
                 }
