@@ -37,9 +37,9 @@ public class Menu {
     }
 
     public void setSymbole(String symb) {
-        if(symb.equals(1)){
+        if(symb.equals("1")){
             symbole.add("✘");
-        }else{
+        }else if(symb.equals("2")){
             symbole.add("〇");
         }
         

@@ -17,17 +17,21 @@ public class Jeu {
     private Scanner _scan = new Scanner(System.in);
 
     public void Jouer(int nombreJoueur, ArrayList name, ArrayList couleur, ArrayList symbole) {
+        System.out.println(nombreJoueur);
+        System.out.println(name);
+        System.out.println(couleur);
+        System.out.println(symbole);
         grid = new Grille();
         joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0), (String) symbole.get(0));
         if (nombreJoueur == 2) {
-            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1), (String) couleur.get(1));
+            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1), (String) symbole.get(1));
         } else {
             if (Objects.equals(couleur.get(0), "❌")) {
                 couleur.add("🟣");
             } else {
                 couleur.add("❌");
             }
-            if (Objects.equals(symbole.get(0), "@")) {
+            if (Objects.equals(symbole.get(0), "〇")) {
                 symbole.add("✘");
             } else {
                 symbole.add("〇");

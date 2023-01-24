@@ -18,16 +18,16 @@ public class Grille {
 
     public void afficherGrille() {
 
-        System.out.println(" 1   2   3   4   5   6   7 ");
+        System.out.println(" 1     2     3     4     5     6     7 ");
         for (int c = 1; c <= columns; c++) {
-            System.out.println(c + " ");
+            System.out.println(" ");
         }
         System.out.println();
         for (int i = 0; i < rows; i++) {
             System.out.println("  ");
             for (int c = 0; c < columns; c++) {
                 if (grid.get(i).get(c) == null) {
-                    System.out.print("|    |");
+                    System.out.print("|   |");
                 } else {
                     System.out.print("| " + grid.get(i).get(c) + " |");
                 }
