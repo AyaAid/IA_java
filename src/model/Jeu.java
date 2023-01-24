@@ -6,12 +6,12 @@ import java.util.Scanner;
 //on clique sur le menu pour sélectionner le mode
 
 public class Jeu {
-    private Grille grid;
-    private Joueur joueur1;
-    private Joueur joueur2;
-    private int nombreJoueur;
-    private int move;
-    private Joueur currentPlayer;
+    private static Grille grid;
+    static Joueur joueur1;
+    private static Joueur joueur2;
+    private static int nombreJoueur;
+    private static int move;
+    static Joueur currentPlayer;
 
     private static Scanner _scan = new Scanner(System.in);
 
@@ -38,9 +38,9 @@ public class Jeu {
         currentPlayer = joueur1;
     }
 
-    public void start_game(){
+    public static void start_game(){
         Grille.afficherGrille();
-        System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
+        System.out.println("C'est au tour de " + Joueur.getJoueur() + " de jouer");
         System.out.println(currentPlayer.getCouleur());
         System.out.println("Choisissez une colonne");
         int column = _scan.nextInt();
@@ -56,60 +56,22 @@ public class Jeu {
                 switchPlayer();
             }
         }
-        System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
+        System.out.println("Le joueur " + Joueur.getJoueur() + " a gagné");
         Classement score = new Classement("IA_java/src/classement.csv");
         try {
-            score.saveScore(currentPlayer.getJoueur(), move);
+            score.saveScore(Joueur.getJoueur(), move);
         } catch (IOException e) {
             System.out.println("Erreur lors de l'écriture du fichier");
         }
     }
 
-    private void switchPlayer() {
+    private static void switchPlayer() {
         if (currentPlayer == joueur1) {
             currentPlayer = joueur2;
         } else {
             currentPlayer = joueur1;
         }
     }
-    
-    public static boolean gagner (int compteurIA, int compteurplayer)
-    {
-        if (compteurIA == 21)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    
-    }
-   
-    public static boolean match_nul (int compteurIA, int compteurplayer)
-    {
-    if (compteurIA == 21 && compteurplayer == 21)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-    }
-
-    public static boolean perdre(int compteurIA, int compteurplayer)
-    {
-        if (compteurplayer == 21)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-    
 
 }
 
