@@ -2,7 +2,7 @@ package model;
 
 public class Joueur {
 
-    private static String joueur;
+    private String joueur;
     private String couleur;
     private String symbole;
 
@@ -12,7 +12,7 @@ public class Joueur {
         this.symbole = symbole;
     }
 
-    public static String getJoueur() {
+    public String getJoueur() {
         return joueur;
     }
 
