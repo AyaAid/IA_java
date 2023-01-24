@@ -22,21 +22,22 @@ public class Grille {
         for (int c = 1; c <= columns; c++) {
             System.out.println("  ");
             for (int i = 0; i < rows; i++) {
-
-                System.out.print("|----|");
-
+                if (grid.get(i).get(c - 1) == null) {
+                    System.out.print("|    |");
+                } else {
+                    System.out.print("| " + grid.get(i).get(c - 1) + " |");
+                }
             }
             System.out.println();
         }
         System.out.println();
-
     }
 
-    public void addJeton(String color, int column) {
+    public void addJeton(String symbole, int column) {
         if (column > 0 && column <= columns) {
             for (int i = rows - 1; i >= 0; i--) {
                 if (grid.get(i).get(column - 1) == null) {
-                    grid.get(i).set(column - 1, color);
+                    grid.get(i).set(column - 1, symbole);
                     break;
                 }
             }

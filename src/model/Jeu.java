@@ -52,7 +52,7 @@ public class Jeu {
                 System.out.println("La grille est pleine, match nul");
                 break;
             }
-            grid.addJeton(currentPlayer.getCouleur(), column);
+            grid.addJeton(currentPlayer.getSymbole(), column);
             grid.afficherGrille();
             move++;
             if (!grid.gagner()) {
