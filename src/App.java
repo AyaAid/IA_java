@@ -13,29 +13,29 @@ public class App {
 
     public static void main(String[] args) throws Exception{
         while (true) {
-            Menu.afficherMenu("principale");
+            afficherMenu();
             switch (_scan.nextLine()) {
                 case "1":
                         System.out.println("\nVous avez choisi de jouer en solo\n");
-                        Menu.afficherMenu("couleur");
-                    break;
+                        SelectionCouleur();
+                        SelectionSymbole();
+                        NomduJoueurSolo();
+                    return;
                 case "2":
-                        Menu.afficherMenu("symbole");
-                    break;
+                        SelectionCouleur();
+                        SelectionSymbole();
+                        NomduJoueur();
+                    return;
                 case "3":
-                        Menu.afficherMenu("niveau");
                         System.out.println("Vous avez choisi de voir le classement");
-                    break;
+                    return;
                 case "4":
                         System.out.println("Vous avez choisi de quitter le jeu");
                     return;
                 default:
                         System.out.println("Veuillez choisir une option valide");       
-                        System.out.println("Veuillez choisir une option valide");       
                     break;
                 }
-    }
-}
     }
 }
 
@@ -58,7 +58,7 @@ public class App {
     public static void ChoixdeCouleur() {
         System.out.println("\nVeuillez choisir une couleur :" + Color.RESET);
         System.out.println (Color.RED + " 1 : Rouge" + Color.RESET);
-        System.out.println (Color.GREEN +" 2 : Vert" + Color.RESET);
+        System.out.println (Color.YELLOW +" 2 : Jaune" + Color.RESET);
         System.out.println (Color.PURPLE + " 3 : Violet" + Color.RESET);
     }
 
