@@ -29,9 +29,9 @@ public class Jeu {
                 couleur.add("❌");
             }
             if(Objects.equals(symbole.get(0), "@")){
-                symbole.add("=");
+                symbole.add("✘");
             } else{
-                symbole.add("@");
+                symbole.add("〇");
             }
             joueur2 = new Joueur("IA", (String) couleur.get(1), (String) symbole.get(1));
         }
