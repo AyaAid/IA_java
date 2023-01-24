@@ -89,4 +89,46 @@ public class Grille {
         }
         return false;
     }
-}
+
+
+    public boolean IA2(){
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (grid.get(i).get(j) != null) {
+                    if(i+2 < rows) { // vérifier si trois pions sont alignés en ligne 
+                        if (grid.get(i).get(j) == grid.get(i + 1).get(j) && grid.get(i).get(j) == grid.get(i + 2).get(j)) {
+                            if(grid.get(i+3).get(j) == null){
+                                grid.get(i+3).set(j, "R");
+                                return true;
+                            }
+                        }
+                    }
+                    if(j+3 < columns) { // vérifier si trois pions sont alignés en colonne
+                        if (grid.get(i).get(j) == grid.get(i).get(j + 1) && grid.get(i).get(j) == grid.get(i).get(j + 2)) {
+                            if(grid.get(i).get(j+3) == null){
+                                grid.get(i).set(j+3, "R");
+                                return true;
+                            }
+                        }
+                    }
+                    if(i+3 < rows && j+3 < columns) { // Vérifier si trois pions sont alignés en diagonale vers la droite
+                        if (grid.get(i).get(j) == grid.get(i + 1).get(j + 1) && grid.get(i).get(j) == grid.get(i + 2).get(j + 2)) {
+                            if(grid.get(i+3).get(j+3) == null){
+                                grid.get(i+3).set(j+3, "R");
+                                return true;
+                            }
+                        }
+                    }
+                    if(i+3 < rows && j-3 >= 0) { // vérifier si trois pions sont alignés en diagonale vers la gauche
+                        if (grid.get(i).get(j) == grid.get(i + 1).get(j - 1) && grid.get(i).get(j) == grid.get(i + 2).get(j - 2)) {
+                            if(grid.get(i+3).get(j-3) == null){
+                                grid.get(i+3).set(j-3, "R");
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
