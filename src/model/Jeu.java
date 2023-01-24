@@ -49,12 +49,15 @@ public class Jeu {
             }
         }
         System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
-        Classement score = new Classement("IA_java/src/classement.csv");
-        try {
-            score.saveScore(currentPlayer.getJoueur(), move);
-        } catch (IOException e) {
-            System.out.println("Erreur lors de l'écriture du fichier");
-        }
+
+        Classement score = new Classement();
+        score.saveClassement(getCurrentPlayer().getJoueur(), getMove());
+        // Classement score = new Classement("IA_java/src/classement.csv");
+        // try {
+        //     score.saveScore(currentPlayer.getJoueur(), move);
+        // } catch (IOException e) {
+        //     System.out.println("Erreur lors de l'écriture du fichier");
+        // }
     }
 
     private void switchPlayer() {
@@ -65,4 +68,11 @@ public class Jeu {
         }
     }
 
+    public Joueur getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public int getMove() {
+        return move;
+    }
 }

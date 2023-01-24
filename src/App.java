@@ -55,16 +55,21 @@ public class App {
                     break;
                 case "3":
                     System.out.println("Vous avez choisi de voir le classement");
-                    Classement score = new Classement("IA_java/src/classement.csv");
+                    // Classement score = new Classement("IA_java/src/classement.csv");
+                    Classement.afficherClassement();
+
                     return;
                 case "4":
                     System.out.println("Vous avez choisi de quitter le jeu");
-                    return;
+                    // return;
+
+                    Classement yourMom = new Classement();
+                    yourMom.saveClassement("Robert", 10);
+                    break;
                 default:
                     System.out.println("Veuillez choisir une option valide");
                     break;
             }
         }
     }
-
 }
