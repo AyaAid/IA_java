@@ -14,11 +14,11 @@ public class Jeu {
 
     private static Scanner _scan = new Scanner(System.in);
 
-    public void Jouer( int nombreJoueur, ArrayList name, ArrayList couleur) {
+    public void Jouer( int nombreJoueur, ArrayList name, ArrayList couleur, ArrayList symbole) {
         grid = new Grille();
-        joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0));
+        joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0), (String) symbole.get(0));
         if(nombreJoueur == 2){
-            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1));
+            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1), (String) couleur.get(1));
         }
         else{
             if(Objects.equals(couleur.get(0), "❌")){
@@ -26,11 +26,15 @@ public class Jeu {
             } else{
                 couleur.add("❌");
             }
-            joueur2 = new Joueur("IA", (String) couleur.get(1));
+            if(Objects.equals(symbole.get(0), "@")){
+                symbole.add("=");
+            } else{
+                symbole.add("@");
+            }
+            joueur2 = new Joueur("IA", (String) couleur.get(1), (String) symbole.get(1));
         }
         currentPlayer = joueur1;
     }
-
 
 }
 

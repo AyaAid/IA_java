@@ -60,21 +60,29 @@ public class Grille {
         return true;
     }
 
-    public boolean gagner(){
-        for(int i = 0; i < rows; i++){
-            for(int j = 0; j < columns; j++){
-                if(grid.get(i).get(j) != null){
-                    if(grid.get(i).get(j) == grid.get(i).get(j+1) && grid.get(i).get(j) == grid.get(i).get(j+2) && grid.get(i).get(j) == grid.get(i).get(j+3)){
-                        return true;
+    public boolean gagner() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (grid.get(i).get(j) != null) {
+                    if(i+3 < rows) { // vérifier une victoire en ligne 
+                        if (grid.get(i).get(j) == grid.get(i + 1).get(j) && grid.get(i).get(j) == grid.get(i + 2).get(j) && grid.get(i).get(j) == grid.get(i + 3).get(j)) {
+                            return true;
+                        }
                     }
-                    if(grid.get(i).get(j) == grid.get(i+1).get(j) && grid.get(i).get(j) == grid.get(i+2).get(j) && grid.get(i).get(j) == grid.get(i+3).get(j)){
-                        return true;
+                    if(j+3 < columns) { // vérifier une victoire en colonne 
+                        if (grid.get(i).get(j) == grid.get(i).get(j + 1) && grid.get(i).get(j) == grid.get(i).get(j + 2) && grid.get(i).get(j) == grid.get(i).get(j + 3)) {
+                            return true;
+                        }
                     }
-                    if(grid.get(i).get(j) == grid.get(i+1).get(j+1) && grid.get(i).get(j) == grid.get(i+2).get(j+2) && grid.get(i).get(j) == grid.get(i+3).get(j+3)){
-                        return true;
+                    if(i+3 < rows && j+3 < columns) { // Vérifier une victoire en diagonale vers la droite
+                        if (grid.get(i).get(j) == grid.get(i + 1).get(j + 1) && grid.get(i).get(j) == grid.get(i + 2).get(j + 2) && grid.get(i).get(j) == grid.get(i + 3).get(j + 3)) {
+                            return true;
+                        }
                     }
-                    if(grid.get(i).get(j) == grid.get(i+1).get(j-1) && grid.get(i).get(j) == grid.get(i+2).get(j-2) && grid.get(i).get(j) == grid.get(i+3).get(j-3)){
-                        return true;
+                    if(i+3 < rows && j-3 >= 0) { // vérifier une victoire en diagonale vers la gauche
+                        if (grid.get(i).get(j) == grid.get(i + 1).get(j - 1) && grid.get(i).get(j) == grid.get(i + 2).get(j - 2) && grid.get(i).get(j) == grid.get(i + 3).get(j - 3)) {
+                            return true;
+                        }
                     }
                 }
             }
