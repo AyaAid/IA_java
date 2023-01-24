@@ -8,12 +8,21 @@ public class Menu {
     private int nbjoueur;
     private ArrayList<String> symbole = new ArrayList<>();
     private ArrayList<String> couleur = new ArrayList<>();
+    private ArrayList<String> name = new ArrayList<>();
     private static Scanner _scan;
 
-    public Menu(int nbjoueur, ArrayList<String> symbole, ArrayList<String> couleur) {
-        this.nbjoueur = nbjoueur;
-        this.symbole = symbole;
-        this.couleur = couleur;
+    public Menu() {
+        nbjoueur = getNbjoueur();
+        symbole = getSymbole();
+        couleur = getCouleur();
+    }
+
+    public ArrayList<String> getName() {
+        return name;
+    }
+
+    public void setName(String nom) {
+        name.add(nom);
     }
 
     public int getNbjoueur() {
