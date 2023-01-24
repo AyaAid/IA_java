@@ -23,7 +23,8 @@ public class App {
                         System.out.println("Veuillez entrer le nom du joueur :");
                         String nom = _scan.nextLine();
                         menu.setName(nom);
-                    return;
+                        menu.afficherMenu("couleur");
+                    break;
                 case "2":
                         System.out.println("\nVous avez choisi de jouer à deux\n");
                         menu.setNbjoueur(2);
@@ -37,7 +38,7 @@ public class App {
                 case "3":
                         System.out.println("Vous avez choisi de voir le classement");
                         Classement score = new Classement("IA_java/src/classement.csv");
-                        
+
                     return;
                 case "4":
                         System.out.println("Vous avez choisi de quitter le jeu");
