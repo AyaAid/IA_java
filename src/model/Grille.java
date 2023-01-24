@@ -17,20 +17,20 @@ public class Grille {
     }
 
     public void afficherGrille() {
-        System.out.println("\n   1     2     3     4     5     6     7");
-        System.out.println();
-        for (int c = 1; c <= columns; c++) {
+        System.out.println("  1    2    3    4    5    6    7\n");
+
+        for (int i = 0; i < columns; i++) {
             System.out.println("  ");
-            for (int i = 0; i < rows; i++) {
-                if (grid.get(i).get(c - 1) == null) {
-                    System.out.print("|    |");
+            for (int c = 0; c < rows; c++) {
+                if (grid.get(i).get(c) == null) {
+                    System.out.print("|    ");
                 } else {
-                    System.out.print("| " + grid.get(i).get(c - 1) + " |");
+                    System.out.print("| " + grid.get(i).get(c) + " |");
                 }
             }
             System.out.println();
         }
-        System.out.println();
+
     }
 
     public void addJeton(String symbole, int column) {
