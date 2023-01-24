@@ -64,8 +64,8 @@ public class App {
 
     public static void ChoixdeSymbole() {
         System.out.println("\nVeuillez choisir un symbole :");
-        System.out.println(" 1 : @");
-        System.out.println(" 2 : =");
+        System.out.println(" 1 : ✘");
+        System.out.println(" 2 : 〇");
         
     }
 
