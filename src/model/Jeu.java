@@ -16,7 +16,7 @@ public class Jeu {
     private static Scanner _scan = new Scanner(System.in);
 
 
-    public void Jouer( int nombreJoueur, ArrayList name, ArrayList couleur, ArrayList symbole) {
+    public static void Jouer( int nombreJoueur, ArrayList name, ArrayList couleur, ArrayList symbole) {
         grid = new Grille();
         joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0), (String) symbole.get(0));
         if(nombreJoueur == 2){

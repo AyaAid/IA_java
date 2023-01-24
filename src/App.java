@@ -30,6 +30,7 @@ public class App {
                         menu.afficherMenu("symbole");
                         String symb = _scan.nextLine();
                         menu.setName(symb);
+                        Jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur(), menu.getSymbole());
                         Jeu.start_game();
                         // menu.afficherMenu("niveau");
                         // String symb = _scan.nextLine();
@@ -50,12 +51,12 @@ public class App {
                         menu.afficherMenu("symbole");
                         String symb0 = _scan.nextLine();
                         menu.setName(symb0);
+                        Jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur(), menu.getSymbole());
                         Jeu.start_game();
                     break;
                 case "3":
                         System.out.println("Vous avez choisi de voir le classement");
                         Classement score = new Classement("IA_java/src/classement.csv");
-
                     return;
                 case "4":
                         System.out.println("Vous avez choisi de quitter le jeu");
