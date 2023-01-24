@@ -15,6 +15,9 @@ public class Jeu {
      * @param mode
      * @return
      */
+    private int rows;
+    private int columns;
+    private Object grid;
     public int Jouer( Integer compteurIA, Integer compteurplayer, Integer joueur, String mode) {
 
         joueur = 0;
@@ -73,26 +76,22 @@ public class Jeu {
     
         return Math.max(compteurIA, compteurplayer);
     }
-    // public int gagner() {
     
-    // }
-    // public int match_nul() {
+    public static boolean gagner (int compteurIA, int compteurplayer)
+    {
+        if (compteurIA == 21)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     
-    // }
-    // public int perdre() {
-    
-    // }
-
-    // private void nextPlayer() {
-    //     if (currentPlayer == player1) {
-    //         currentPlayer = player2;
-    //     } else {
-    //         currentPlayer = player1;
-    //     }
-    // }}
-
-public static boolean match_nul (int compteurIA, int compteurplayer)
-{
+    }
+   
+    public static boolean match_nul (int compteurIA, int compteurplayer)
+    {
     if (compteurIA == 21 && compteurplayer == 21)
     {
         return true;
@@ -101,5 +100,56 @@ public static boolean match_nul (int compteurIA, int compteurplayer)
     {
         return false;
     }
+    }
+
+    public static boolean perdre(int compteurIA, int compteurplayer)
+    {
+        if (compteurplayer == 21)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    public boolean gagner() {
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (( grid).get(i).get(j) != 0) {
+                    if(i+3 < rows) { // vérifier une victoire en ligne
+                        if (grid.get(i).get(j) == grid.get(i + 1).get(j) && grid.get(i).get(j) == grid.get(i + 2).get(j) && grid.get(i).get(j) == grid.get(i + 3).get(j)) {
+                            return true;
+                        }
+                    }
+                    if(j+3 < columns) { // vérifier une victoire en colonne 
+                        if (grid.get(i).get(j) == grid.get(i).get(j + 1) && grid.get(i).get(j) == grid.get(i).get(j + 2) && grid.get(i).get(j) == grid.get(i).get(j + 3)) {
+                            return true;
+                        }
+                    }
+                    if(i+3 < rows && j+3 < columns) { // Vérifier une victoire en diagonale vers la droite
+                        if (grid.get(i).get(j) == grid.get(i + 1).get(j + 1) && grid.get(i).get(j) == grid.get(i + 2).get(j + 2) && grid.get(i).get(j) == grid.get(i + 3).get(j + 3)) {
+                            return true;
+                        }
+                    }
+                    if(i+3 < rows && j-3 >= 0) { // vérifier une victoire en diagonale vers la gauche
+                        if (grid.get(i).get(j) == grid.get(i + 1).get(j - 1) && grid.get(i).get(j) == grid.get(i + 2).get(j - 2) && grid.get(i).get(j) == grid.get(i + 3).get(j - 3)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
-}
+
+    // private void nextPlayer() {
+    //     if (currentPlayer == player1) {
+    //         currentPlayer = player2;
+    //     } else {
+    //         currentPlayer = player1;
+    //     }
+    // }}

@@ -32,7 +32,4 @@ public class Joueur {
             pw.close();
         }
     }
-
-
-    
 }
