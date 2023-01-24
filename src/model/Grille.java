@@ -3,8 +3,8 @@ package model;
 import java.util.*;
 
 public class Grille {
-    private static int rows = 7;
-    private static int columns = 6;
+    private static int rows = 6;
+    private static int columns = 7;
     static ArrayList<ArrayList<String>> grid = new ArrayList<ArrayList<String>>();
 
     public Grille() {
@@ -17,20 +17,24 @@ public class Grille {
     }
 
     public void afficherGrille() {
-        System.out.println("  1    2    3    4    5    6    7\n");
 
-        for (int i = 0; i < columns; i++) {
+        System.out.println(" 1   2   3   4   5   6   7 ");
+        for (int c = 1; c <= columns; c++) {
+            System.out.println(c + " ");
+        }
+        System.out.println();
+        for (int i = 0; i < rows; i++) {
             System.out.println("  ");
-            for (int c = 0; c < rows; c++) {
+            for (int c = 0; c < columns; c++) {
                 if (grid.get(i).get(c) == null) {
-                    System.out.print("|    ");
+                    System.out.print("|    |");
                 } else {
                     System.out.print("| " + grid.get(i).get(c) + " |");
                 }
             }
             System.out.println();
         }
-
+        System.out.println();
     }
 
     public void addJeton(String symbole, int column) {
@@ -142,3 +146,4 @@ public class Grille {
         }
         return false;
     }
+}

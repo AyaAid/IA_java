@@ -17,10 +17,6 @@ public class Jeu {
     private Scanner _scan = new Scanner(System.in);
 
     public void Jouer(int nombreJoueur, ArrayList name, ArrayList couleur, ArrayList symbole) {
-        System.out.println(nombreJoueur);
-        System.out.println(name);
-        System.out.println(couleur);
-        System.out.println(symbole);
         grid = new Grille();
         joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0), (String) symbole.get(0));
         if (nombreJoueur == 2) {
