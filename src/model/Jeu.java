@@ -17,6 +17,10 @@ public class Jeu {
 
 
     public static void Jouer( int nombreJoueur, ArrayList name, ArrayList couleur, ArrayList symbole) {
+        System.out.println(nombreJoueur);
+        System.out.println(name);
+        System.out.println(couleur);
+        System.out.println(symbole);
         grid = new Grille();
         joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0), (String) symbole.get(0));
         if(nombreJoueur == 2){
