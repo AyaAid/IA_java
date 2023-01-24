@@ -6,13 +6,11 @@ import java.util.Scanner;
 
 public class Menu {
     private int nbjoueur;
-    private ArrayList<String> symbole = new ArrayList<>();
     private ArrayList<String> couleur = new ArrayList<>();
     private ArrayList<String> name = new ArrayList<>();
 
     public Menu() {
         nbjoueur = getNbjoueur();
-        symbole = getSymbole();
         couleur = getCouleur();
     }
 
@@ -32,25 +30,17 @@ public class Menu {
         this.nbjoueur = nbjoueur;
     }
 
-    public ArrayList<String> getSymbole() {
-        return symbole;
-    }
-
-    public void setSymbole(String symb) {
-        if(symb.equals("1")){
-            symbole.add("✘");
-        }else if(symb.equals("2")){
-            symbole.add("〇");
-        }
-        
-    }
-
     public ArrayList<String> getCouleur() {
         return couleur;
     }
 
     public void setCouleur(String coul) {
-        couleur.add(coul);
+        if(coul.equals("1")){
+            couleur.add("🔴");
+        }
+        else if(coul.equals("2")){
+            couleur.add("🟡");
+        }
     }
 
 
@@ -70,19 +60,8 @@ public class Menu {
         }
         else if (choix == "couleur"){
 
-            menus.add (Color.RED + " 1 : Rouge" + Color.RESET);
-            menus.add (Color.GREEN +" 2 : Vert" + Color.RESET);
-            menus.add (Color.PURPLE + " 3 : Violet" + Color.RESET);
-
-            Iterator<String> iterator = menus.iterator();
-            while(iterator.hasNext()) {
-                System.out.println(iterator.next());
-            }
-        }
-        else if (choix == "symbole"){
-
-            menus.add(" 1 : ✘");
-            menus.add(" 2 : 〇");
+            menus.add (Color.RED + " 1 : 🔴" + Color.RESET);
+            menus.add (Color.YELLOW +" 2 : 🟡" + Color.RESET);
 
             Iterator<String> iterator = menus.iterator();
             while(iterator.hasNext()) {

@@ -2,7 +2,6 @@ package model;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 //on clique sur le menu pour sélectionner le mode
 
@@ -10,33 +9,19 @@ public class Jeu {
     private Grille grid = new Grille();
     Joueur joueur1;
     private Joueur joueur2;
-    private int nombreJoueur;
     private int move;
     Joueur currentPlayer;
 
     private Scanner _scan = new Scanner(System.in);
 
-    public void Jouer(int nombreJoueur, ArrayList name, ArrayList couleur, ArrayList symbole) {
-        System.out.println(nombreJoueur);
-        System.out.println(name);
-        System.out.println(couleur);
-        System.out.println(symbole);
+    public void Jouer(int nombreJoueur, ArrayList name, ArrayList couleur) {
         grid = new Grille();
-        joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0), (String) symbole.get(0));
+        joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0));
         if (nombreJoueur == 2) {
-            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1), (String) symbole.get(1));
+            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1));
         } else {
-            if (Objects.equals(couleur.get(0), "❌")) {
-                couleur.add("🟣");
-            } else {
-                couleur.add("❌");
-            }
-            if (Objects.equals(symbole.get(0), "〇")) {
-                symbole.add("✘");
-            } else {
-                symbole.add("〇");
-            }
-            joueur2 = new Joueur("IA", (String) couleur.get(1), (String) symbole.get(1));
+            couleur.add("⚪️");
+            joueur2 = new Joueur("IA", (String) couleur.get(1));
         }
         currentPlayer = joueur1;
     }
@@ -52,7 +37,7 @@ public class Jeu {
                 System.out.println("La grille est pleine, match nul");
                 break;
             }
-            grid.addJeton(currentPlayer.getSymbole(), column);
+            grid.addJeton(currentPlayer.getCouleur(), column);
             grid.afficherGrille();
             move++;
             if (!grid.gagner()) {

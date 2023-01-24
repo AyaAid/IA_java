@@ -1,4 +1,5 @@
 
+import java.util.Objects;
 import java.util.Scanner;
 
 import model.Classement;
@@ -21,13 +22,11 @@ public class App {
                     System.out.println("Veuillez entrer le nom du joueur :");
                     String nom = _scan.nextLine();
                     menu.setName(nom);
+                    System.out.println("Choisir une couleur pour le joueur: ");
                     menu.afficherMenu("couleur");
                     String coul = _scan.nextLine();
                     menu.setName(coul);
-                    menu.afficherMenu("symbole");
-                    String symb = _scan.nextLine();
-                    menu.setName(symb);
-                    jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur(), menu.getSymbole());
+                    jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur());
                     jeu.start_game();
                     // menu.afficherMenu("niveau");
                     // String symb = _scan.nextLine();
@@ -46,19 +45,12 @@ public class App {
                     menu.afficherMenu("couleur");
                     String coul0 = _scan.nextLine();
                     menu.setCouleur(coul0);
-                    System.out.println("Choisir une couleur pour le joueur 2: ");
-                    menu.afficherMenu("couleur");
-                    String coul1 = _scan.nextLine();
-                    menu.setCouleur(coul1);
-                    System.out.println("Choisir un symbole pour le joueur 1: ");
-                    menu.afficherMenu("symbole");
-                    String symb0 = _scan.nextLine();
-                    menu.setSymbole(symb0);
-                    System.out.println("Choisir un symbole pour le joueur 2: ");
-                    menu.afficherMenu("symbole");
-                    String symb1 = _scan.nextLine();
-                    menu.setSymbole(symb1);
-                    jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur(), menu.getSymbole());
+                    if(Objects.equals(menu.getCouleur().get(0), "🔴")){
+                        menu.setCouleur("2");
+                    } else{
+                        menu.setCouleur("1");
+                    }
+                    jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur());
                     jeu.start_game();
                     break;
                 case "3":

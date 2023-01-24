@@ -18,7 +18,7 @@ public class Grille {
 
     public void afficherGrille() {
 
-        System.out.println(" 1     2     3     4     5     6     7 ");
+        System.out.println("    1    2    3    4    5    6    7 ");
         for (int c = 1; c <= columns; c++) {
             System.out.print(" ");  // ajouté
         }
@@ -29,7 +29,7 @@ public class Grille {
                 if (grid.get(i).get(c) == null) {
                     System.out.print("|   |");
                 } else {
-                    System.out.print("| " + grid.get(i).get(c) + " |");
+                    System.out.print("| " + grid.get(i).get(c) + "|");
                 }
             }
             System.out.println();
