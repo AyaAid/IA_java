@@ -61,11 +61,11 @@ public class App {
                     return;
                 case "4":
                     System.out.println("Vous avez choisi de quitter le jeu");
-                    // return;
+                    return;
 
-                    Classement yourMom = new Classement();
-                    yourMom.saveClassement("Robert", 10);
-                    break;
+                    // Classement score = new Classement();
+                    // score.saveClassement("Robert", 10);
+                    // break;
                 default:
                     System.out.println("Veuillez choisir une option valide");
                     break;
