@@ -36,6 +36,35 @@ public class Jeu {
         currentPlayer = joueur1;
     }
 
+    public void start_game(){
+        grid.afficherGrille();
+        System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
+        System.out.println(currentPlayer.getCouleur());
+        System.out.println("Choisissez une colonne");
+        int column = _scan.nextInt();
+        while(!grid.gagner()){
+            if(grid.grillePleine()){
+                System.out.println("La grille est pleine, match nul");
+                break;
+            }
+            grid.addJeton(currentPlayer.getCouleur(), column)
+            grid.afficherGrille();
+            move++;
+            if(!grid.gagner()){
+                switchPlayer();
+            }
+        }
+        System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
+    }
+
+    private void switchPlayer() {
+        if (currentPlayer == joueur1) {
+            currentPlayer = joueur2;
+        } else {
+            currentPlayer = joueur1;
+        }
+    }
+
 }
 
 
