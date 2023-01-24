@@ -20,11 +20,11 @@ public class Grille {
 
         System.out.println(" 1     2     3     4     5     6     7 ");
         for (int c = 1; c <= columns; c++) {
-            System.out.println(" ");
+            System.out.print(" ");  // ajouté
         }
         System.out.println();
         for (int i = 0; i < rows; i++) {
-            System.out.println("  ");
+            System.out.print("  "); // ajouté
             for (int c = 0; c < columns; c++) {
                 if (grid.get(i).get(c) == null) {
                     System.out.print("|   |");
