@@ -1,13 +1,19 @@
 package model;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
-import javax.swing.SpringLayout;
-
 //on clique sur le menu pour sélectionner le mode
 
 public class Jeu {
+    private Grille grid;
+    private Joueur joueur1;
+    private Joueur joueur2;
+    private int nombreJoueur;
+    private int move;
+    private Joueur currentPlayer;
 
     private static Scanner _scan = new Scanner(System.in);
+<<<<<<< HEAD
     /**
      * @param compteurIA
      * @param compteurplayer
@@ -19,63 +25,60 @@ public class Jeu {
     private int columns;
     private Object grid;
     public int Jouer( Integer compteurIA, Integer compteurplayer, Integer joueur, String mode) {
+=======
+>>>>>>> 824b57bba40564e2d3d6cf6f7aaf1296eae771bc
 
-        joueur = 0;
-        compteurIA = 0;
-        compteurplayer = 0;
-        mode = "";
-
-        String choix;
-        Object grille;
-        Object grillefull;
-        do {
-            App.afficherMenu();
-            choix = _scan.nextLine();
-            switch (choix) {
-                case "1":
-                    mode = "solo";
-                    System.out.println("yo");
-                    break;
-                case "2":
-                    mode = "duo";
-                    break;
-                default:
-                    System.out.println("Choix incorrect!");
-                    break;
-            }
+    public void Jouer( int nombreJoueur, ArrayList name, ArrayList couleur, ArrayList symbole) {
+        grid = new Grille();
+        joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0), (String) symbole.get(0));
+        if(nombreJoueur == 2){
+            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1), (String) couleur.get(1));
         }
-
-        //tant que la grille n'est pas complete("grille" = le structure du plateau   ==   "grillefull" = plateau complet)
-        while (grille != grillefull ){
-            // if (mode == "solo"){
-                
-            // }
-            // else if (mode == "duo"){
-
-            // }
-            // else{
-            //     System.out.println("Tu dois écrire soit 'solo' soit 'duo' !");
-            // }
-            compteurIA = compteurIA + 1;
-            compteurplayer = compteurplayer + 1;
-            joueur = 0;
-            System.out.println("Start:");
-            //si c'est au joueur de jouer
-            if (joueur % 2 == 0) {
-                compteurIA = compteurIA + 1;
-                System.out.println("Le compteur de l'IA est à :" + compteurIA);
-            } 
-                //si c'est à l'ia de jouer        
-            else {
-                compteurplayer = compteurplayer + 1;
-                System.out.println("Ton compteur est à :" + compteurplayer);
+        else{
+            if(Objects.equals(couleur.get(0), "❌")){
+                couleur.add("🟣");
+            } else{
+                couleur.add("❌");
             }
-            
-            joueur = joueur + 1;
+            if(Objects.equals(symbole.get(0), "@")){
+                symbole.add("=");
+            } else{
+                symbole.add("@");
+            }
+            joueur2 = new Joueur("IA", (String) couleur.get(1), (String) symbole.get(1));
         }
-    
-        return Math.max(compteurIA, compteurplayer);
+        currentPlayer = joueur1;
     }
+
+    public void start_game(){
+        grid.afficherGrille();
+        System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
+        System.out.println(currentPlayer.getCouleur());
+        System.out.println("Choisissez une colonne");
+        int column = _scan.nextInt();
+        while(!grid.gagner()){
+            if(grid.grillePleine()){
+                System.out.println("La grille est pleine, match nul");
+                break;
+            }
+            grid.addJeton(currentPlayer.getCouleur(), column)
+            grid.afficherGrille();
+            move++;
+            if(!grid.gagner()){
+                switchPlayer();
+            }
+        }
+        System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
+    }
+
+    private void switchPlayer() {
+        if (currentPlayer == joueur1) {
+            currentPlayer = joueur2;
+        } else {
+            currentPlayer = joueur1;
+        }
+    }
+<<<<<<< HEAD
     
     public static boolean gagner (int compteurIA, int compteurplayer)
     {
@@ -153,3 +156,10 @@ public class Jeu {
     //         currentPlayer = player1;
     //     }
     // }}
+=======
+
+}
+
+
+
+>>>>>>> 824b57bba40564e2d3d6cf6f7aaf1296eae771bc

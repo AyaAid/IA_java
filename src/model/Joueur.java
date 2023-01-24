@@ -1,18 +1,15 @@
 package model;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 public class Joueur {
 
     private String joueur;
     private String couleur;
+    private String symbole;
 
-    public void joueur(String joueur, String couleur) {
+    public Joueur(String joueur, String couleur, String symbole) {
         this.joueur = joueur;
         this.couleur = couleur;
+        this.symbole = symbole;
     }
 
     public String getJoueur() {
@@ -23,13 +20,7 @@ public class Joueur {
         return couleur;
     }
 
-   
-    public void enregistrer()throws IOException {
-        PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("classement.csv", true)));
-        try{
-            pw.println(joueur);
-        } finally {
-            pw.close();
-        }
+    public String getSymbole() {
+        return symbole;
     }
 }
