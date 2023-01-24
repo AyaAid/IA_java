@@ -1,4 +1,5 @@
 package model;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
@@ -28,9 +29,9 @@ public class Jeu {
                 couleur.add("❌");
             }
             if(Objects.equals(symbole.get(0), "@")){
-                symbole.add("=");
+                symbole.add("✘");
             } else{
-                symbole.add("@");
+                symbole.add("〇");
             }
             joueur2 = new Joueur("IA", (String) couleur.get(1), (String) symbole.get(1));
         }
@@ -38,7 +39,7 @@ public class Jeu {
     }
 
     public void start_game(){
-        grid.afficherGrille();
+        Grille.afficherGrille();
         System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
         System.out.println(currentPlayer.getCouleur());
         System.out.println("Choisissez une colonne");
@@ -48,14 +49,20 @@ public class Jeu {
                 System.out.println("La grille est pleine, match nul");
                 break;
             }
-            grid.addJeton(currentPlayer.getCouleur(), column);
-            grid.afficherGrille();
+            Grille.addJeton(currentPlayer.getCouleur(), column);
+            Grille.afficherGrille();
             move++;
             if(!grid.gagner()){
                 switchPlayer();
             }
         }
         System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
+        Classement score = new Classement("IA_java/src/classement.csv");
+        try {
+            score.saveScore(currentPlayer.getJoueur(), move);
+        } catch (IOException e) {
+            System.out.println("Erreur lors de l'écriture du fichier");
+        }
     }
 
     private void switchPlayer() {
