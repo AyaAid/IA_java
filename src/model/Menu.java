@@ -39,6 +39,60 @@ public class Menu {
     public void setCouleur(String coul) {
         couleur.add(coul);
     }
+    public static void NomduJoueur() {
+        System.out.println("\nVeuillez entrer le nom du joueur 1 :");
+        String nom1 = _scan.nextLine();
+        System.out.println("\nVeuillez entrer le nom du joueur 2 :");
+        String nom2 = _scan.nextLine();
+        Grille.afficherGrille();
+        System.out.println( "\n"+ nom1 +" VS " + nom2);
+    }
+
+    public static void SelectionSymbole() {
+        while (true) {
+            ChoixdeSymbole();
+            String symbole = _scan.nextLine();
+            switch (symbole) {
+                case "1":
+                ChoixdeCouleur();
+                    System.out.println("Vous avez choisi le symbole @");
+                    return;
+                case "2":
+                    System.out.println("Vous avez choisi le symbole =");
+                    return;
+                default:
+                    System.out.println("Veuillez choisir une option valide");
+                    break;
+            }
+        }
+    }
+
+    private static void ChoixdeSymbole() {
+        System.out.println("\nVeuillez choisir un symbole :");
+        System.out.println(" 1 : ✘");
+        System.out.println(" 2 : 〇");
+    }
+
+    public static void SelectionCouleur() {
+        while (true) {
+            ChoixdeCouleur();
+            String couleur = _scan.nextLine();
+            switch (couleur) {
+                case "1":
+                    System.out.println(Color.RED + "Vous avez choisi la couleur Rouge" + Color.RESET);
+                    return;
+                case "2":
+                    System.out.println(Color.GREEN + "Vous avez choisi la couleur Vert" + Color.RESET);
+                    return;
+                case "3":
+                    System.out.println(Color.PURPLE + "Vous avez choisi la couleur Violet" + Color.RESET);
+                    return;
+                default:
+                    System.out.println("Veuillez choisir une option valide");
+                    break;
+            }
+        }
+    }
         // do {
         //     afficherMenu(null);
         //     choix _scan.nextLine();
@@ -68,6 +122,20 @@ public class Menu {
         // } while (!choix.equals("q"));
 
 
+    private static void ChoixdeCouleur() {
+        System.out.println("\nVeuillez choisir une couleur :" + Color.RESET);
+        System.out.println (Color.RED + " 1 : Rouge" + Color.RESET);
+        System.out.println (Color.GREEN +" 2 : Vert" + Color.RESET);
+        System.out.println (Color.PURPLE + " 3 : Violet" + Color.RESET);
+    }
+    private static void nbjoueur() {
+        System.out.println("\nVeuillez choisir une couleur :" + Color.RESET);
+        System.out.println (Color.RED + " 1 : Rouge" + Color.RESET);
+        System.out.println (Color.GREEN +" 2 : Vert" + Color.RESET);
+        System.out.println (Color.PURPLE + " 3 : Violet" + Color.RESET);
+    }
+
+
     public static void afficherMenu(String choix) {
         ArrayList<String> menus = new ArrayList<>();
         if (choix == "principale"){
@@ -79,20 +147,18 @@ public class Menu {
 
             Iterator<String> iterator = menus.iterator();
             while(iterator.hasNext()) {
-                String menus = iterator.next();
-                System.out.println(menus);
+                String menu = iterator.next();
+                System.out.println(menu);
             }
         }
         else if (choix == "couleur"){
-            System.out.println("\nVeuillez choisir une couleur :" + Color.RESET);
-            System.out.println (Color.RED + " 1 : Rouge" + Color.RESET);
-            System.out.println (Color.GREEN +" 2 : Vert" + Color.RESET);
-            System.out.println (Color.PURPLE + " 3 : Violet" + Color.RESET);
+            ChoixdeCouleur();
+        }
+        else if (choix == "nbjoueur"){
+            nbjoueur();
         }
         else if (choix == "symbole"){
-            System.out.println("\nVeuillez choisir un symbole :");
-            System.out.println(" 1 : ✘");
-            System.out.println(" 2 : 〇");
+            ChoixdeSymbole();
         }
         else if (choix == "niveau"){
             menus.add("          \u001B[4m⥤ Niveau IA ⥢\u001B[0m");
