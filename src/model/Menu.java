@@ -2,14 +2,13 @@ package model;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-import model.*;
+
 
 public class Menu {
     private int nbjoueur;
     private ArrayList<String> symbole = new ArrayList<>();
     private ArrayList<String> couleur = new ArrayList<>();
     private ArrayList<String> name = new ArrayList<>();
-    private static Scanner _scan;
 
     public Menu() {
         nbjoueur = getNbjoueur();
@@ -38,7 +37,12 @@ public class Menu {
     }
 
     public void setSymbole(String symb) {
-        symbole.add(symb);
+        if(symb.equals(1)){
+            symbole.add("✘");
+        }else{
+            symbole.add("〇");
+        }
+        
     }
 
     public ArrayList<String> getCouleur() {
