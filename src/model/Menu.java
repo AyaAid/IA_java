@@ -66,7 +66,6 @@ public class Menu {
         }
         else if (choix == "couleur"){
 
-            menus.add("\nVeuillez choisir une couleur ("+Jeu.currentPlayer+"):" + Color.RESET);
             menus.add (Color.RED + " 1 : Rouge" + Color.RESET);
             menus.add (Color.GREEN +" 2 : Vert" + Color.RESET);
             menus.add (Color.PURPLE + " 3 : Violet" + Color.RESET);
@@ -77,7 +76,7 @@ public class Menu {
             }
         }
         else if (choix == "symbole"){
-            menus.add("\nVeuillez choisir un symbole :");
+
             menus.add(" 1 : ✘");
             menus.add(" 2 : 〇");
 
