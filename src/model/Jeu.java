@@ -13,20 +13,7 @@ public class Jeu {
     private Joueur currentPlayer;
 
     private static Scanner _scan = new Scanner(System.in);
-<<<<<<< HEAD
-    /**
-     * @param compteurIA
-     * @param compteurplayer
-     * @param joueur
-     * @param mode
-     * @return
-     */
-    private int rows;
-    private int columns;
-    private Object grid;
-    public int Jouer( Integer compteurIA, Integer compteurplayer, Integer joueur, String mode) {
-=======
->>>>>>> 824b57bba40564e2d3d6cf6f7aaf1296eae771bc
+
 
     public void Jouer( int nombreJoueur, ArrayList name, ArrayList couleur, ArrayList symbole) {
         grid = new Grille();
@@ -61,7 +48,7 @@ public class Jeu {
                 System.out.println("La grille est pleine, match nul");
                 break;
             }
-            grid.addJeton(currentPlayer.getCouleur(), column)
+            grid.addJeton(currentPlayer.getCouleur(), column);
             grid.afficherGrille();
             move++;
             if(!grid.gagner()){
@@ -78,7 +65,6 @@ public class Jeu {
             currentPlayer = joueur1;
         }
     }
-<<<<<<< HEAD
     
     public static boolean gagner (int compteurIA, int compteurplayer)
     {
@@ -117,49 +103,7 @@ public class Jeu {
         }
     }
     
-    public boolean gagner() {
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                if (( grid).get(i).get(j) != 0) {
-                    if(i+3 < rows) { // vérifier une victoire en ligne
-                        if (grid.get(i).get(j) == grid.get(i + 1).get(j) && grid.get(i).get(j) == grid.get(i + 2).get(j) && grid.get(i).get(j) == grid.get(i + 3).get(j)) {
-                            return true;
-                        }
-                    }
-                    if(j+3 < columns) { // vérifier une victoire en colonne 
-                        if (grid.get(i).get(j) == grid.get(i).get(j + 1) && grid.get(i).get(j) == grid.get(i).get(j + 2) && grid.get(i).get(j) == grid.get(i).get(j + 3)) {
-                            return true;
-                        }
-                    }
-                    if(i+3 < rows && j+3 < columns) { // Vérifier une victoire en diagonale vers la droite
-                        if (grid.get(i).get(j) == grid.get(i + 1).get(j + 1) && grid.get(i).get(j) == grid.get(i + 2).get(j + 2) && grid.get(i).get(j) == grid.get(i + 3).get(j + 3)) {
-                            return true;
-                        }
-                    }
-                    if(i+3 < rows && j-3 >= 0) { // vérifier une victoire en diagonale vers la gauche
-                        if (grid.get(i).get(j) == grid.get(i + 1).get(j - 1) && grid.get(i).get(j) == grid.get(i + 2).get(j - 2) && grid.get(i).get(j) == grid.get(i + 3).get(j - 3)) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-}
-
-    // private void nextPlayer() {
-    //     if (currentPlayer == player1) {
-    //         currentPlayer = player2;
-    //     } else {
-    //         currentPlayer = player1;
-    //     }
-    // }}
-=======
 
 }
 
 
-
->>>>>>> 824b57bba40564e2d3d6cf6f7aaf1296eae771bc
