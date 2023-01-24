@@ -88,11 +88,11 @@ public class Menu {
         }
         else if (choix == "niveau"){
             menus.add("          \u001B[4m⥤ Niveau IA ⥢\u001B[0m");
-            menus.add("\u001B[32m1-   ⌈    Easy !  ⌋\u001B[0m");
-            menus.add("\u001B[93m2-   ⌈   Medium   ⌋\u001B[0m");
-            menus.add("\u001B[34m3-   ⌈    Hard    ⌋\u001B[0m");
-            menus.add("\u001B[35m4-   ⌈     Impossible      ⌋\u001B[0m");
-            menus.add("\u001B[38mq-   ⌈     Quitter      ⌋\u001B[0m");
+            menus.add("\u001B[32m1-   ⌈       Easy !    ⌋\u001B[0m");
+            menus.add("\u001B[93m2-   ⌈      Medium     ⌋\u001B[0m");
+            menus.add("\u001B[34m3-   ⌈       Hard      ⌋\u001B[0m");
+            menus.add("\u001B[35m4-   ⌈    Impossible   ⌋\u001B[0m");
+            menus.add("\u001B[38mq-   ⌈      Quitter    ⌋\u001B[0m");
     
             Iterator<String> iterator = menus.iterator();
             while(iterator.hasNext()) {

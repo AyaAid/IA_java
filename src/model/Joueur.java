@@ -18,6 +18,7 @@ public class Joueur {
 
     public String getCouleur() {
         return couleur;
+        
     }
 
     public String getSymbole() {
