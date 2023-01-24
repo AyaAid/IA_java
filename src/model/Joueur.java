@@ -2,7 +2,7 @@ package model;
 
 public class Joueur {
 
-    private String joueur;
+    private static String joueur;
     private String couleur;
     private String symbole;
 
@@ -12,12 +12,13 @@ public class Joueur {
         this.symbole = symbole;
     }
 
-    public String getJoueur() {
+    public static String getJoueur() {
         return joueur;
     }
 
     public String getCouleur() {
         return couleur;
+        
     }
 
     public String getSymbole() {
