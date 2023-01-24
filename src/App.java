@@ -14,32 +14,28 @@ public class App {
 
     public static void main(String[] args) throws Exception{
         while (true) {
-            afficherMenu();
+            Menu.afficherMenu("principale");
             switch (_scan.nextLine()) {
                 case "1":
                         System.out.println("\nVous avez choisi de jouer en solo\n");
-                        Menu.afficher_menuIA();
-                    return;
+                        Menu.afficherMenu("couleur");
+                    break;
                 case "2":
-                    System.out.println("\nVous avez choisi de jouer contre l'IA\n");
-                        Menu.afficher_menuIA();
-                    return;
+                        Menu.afficherMenu("symbole");
+                    break;
                 case "3":
+                        Menu.afficherMenu("niveau");
                         System.out.println("Vous avez choisi de voir le classement");
-                        Menu.afficher_menuIA();
-                    return;
+                    break;
                 case "4":
                         System.out.println("Vous avez choisi de quitter le jeu");
-                        Menu.afficher_menuIA();
                     return;
                 default:
-                        System.out.println("Veuillez choisir une option valide");     
-                        Menu.afficher_menuIA();
-  
+                        System.out.println("Veuillez choisir une option valide");       
                     break;
                 }
-        }
     }
+}
 
     public static void NomduJoueurSolo() {
         System.out.println("\nVeuillez entrer votre nom :");
@@ -117,4 +113,3 @@ public class App {
     public App() {
     }
 } 
- 
