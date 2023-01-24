@@ -7,6 +7,7 @@ import java.util.Scanner;
 import model.Classement;
 import model.Color;
 import model.Grille;
+import model.Jeu;
 import model.Menu;
 
 public class App {
@@ -15,7 +16,7 @@ public class App {
 
     public static void main(String[] args) throws Exception{
         while (true) {
-            Menu.afficherMenu("principale");
+            menu.afficherMenu("principale");
             switch (_scan.nextLine()) {
                 case "1":
                         System.out.println("\nVous avez choisi de jouer en solo\n");
@@ -24,6 +25,15 @@ public class App {
                         String nom = _scan.nextLine();
                         menu.setName(nom);
                         menu.afficherMenu("couleur");
+                        String coul = _scan.nextLine();
+                        menu.setName(coul);
+                        menu.afficherMenu("symbole");
+                        String symb = _scan.nextLine();
+                        menu.setName(symb);
+                        Jeu.start_game();
+                        // menu.afficherMenu("niveau");
+                        // String symb = _scan.nextLine();
+                        // menu.setName(symb);
                     break;
                 case "2":
                         System.out.println("\nVous avez choisi de jouer à deux\n");
@@ -34,7 +44,14 @@ public class App {
                         System.out.println("Veuillez entrer le nom du joueur 2 :");
                         String nom2 = _scan.nextLine();
                         menu.setName(nom2);
-                    return;
+                        menu.afficherMenu("couleur");
+                        String coul0 = _scan.nextLine();
+                        menu.setName(coul0);
+                        menu.afficherMenu("symbole");
+                        String symb0 = _scan.nextLine();
+                        menu.setName(symb0);
+                        Jeu.start_game();
+                    break;
                 case "3":
                         System.out.println("Vous avez choisi de voir le classement");
                         Classement score = new Classement("IA_java/src/classement.csv");
