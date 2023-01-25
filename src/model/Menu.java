@@ -59,8 +59,8 @@ public class Menu {
         }
         else if (choix == "couleur"){
 
-            menus.add (Color.RED + " 1 : 🔴" + Color.RESET);
-            menus.add (Color.YELLOW +" 2 : 🟡" + Color.RESET);
+            menus.add (" 1 : 🔴");
+            menus.add (" 2 : 🟡");
 
             Iterator<String> iterator = menus.iterator();
             while(iterator.hasNext()) {
