@@ -4,10 +4,7 @@ import java.util.Random;
 //d
 
 public class IA {
-    private Joueur joueur2;
-
     private Random rand = new Random();
-    private int rows =  6;
     private int columns = 7;
 
     public IA() {
