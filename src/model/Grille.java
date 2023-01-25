@@ -57,6 +57,14 @@ public class Grille {
         return false;
     }
 
+    public void reinitialiserGrille() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                grid.get(i).set(j, null);
+            }
+        }
+    }
+
     public boolean grillePleine() {
         for (int i = 0; i < grid.size(); i++) {
             for (int j = 0; j < grid.get(i).size(); j++) {
