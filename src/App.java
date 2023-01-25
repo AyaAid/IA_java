@@ -57,12 +57,10 @@ public class App {
                     System.out.println("Vous avez choisi de voir le classement");
                     // Classement score = new Classement("IA_java/src/classement.csv");
                     Classement.afficherClassement();
-
                     return;
                 case "4":
                     System.out.println("Vous avez choisi de quitter le jeu\n");
                     return;
-
                     // Classement score = new Classement();
                     // score.saveClassement("Robert", 10);
                     // break;

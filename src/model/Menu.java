@@ -1,4 +1,5 @@
 package model;
+import java.lang.foreign.SymbolLookup;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -31,12 +32,12 @@ public class Menu {
     }
 
     public ArrayList<String> getSymbole() {
-        return symbole;
+        return getSymbole();
     }
 
     public void setSymbole(String symb) {
         getCouleur();
-        symbole.add(symb);
+        SymbolLookup.add(symb);
     }
 
     public ArrayList<String> getCouleur() {

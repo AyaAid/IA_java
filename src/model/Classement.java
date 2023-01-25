@@ -23,9 +23,9 @@ public class Classement {
     public Classement() {
     }
 
-    public static void csvToTopTen() {
+    public static void csvToTopTen() throws IOException{
         try (BufferedReader pw = new BufferedReader(new FileReader("classement.csv"))) {
-            // topTen.clear();
+            topTen.clear();
 
             String line;
             while ((line = pw.readLine()) != null) {
@@ -81,10 +81,8 @@ public class Classement {
                 break;
             }
         }
-
-        afficherClassement();
-
         topTenToCsv();
+        afficherClassement();
     }
 
     public String getName() {
@@ -106,7 +104,7 @@ public class Classement {
     public void saveScore(String name, int move)throws IOException {
         PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(filename, true)));
         try{
-            pw.println(name + ";" + move);
+            pw.write(name + ";" + move + "\n");
         } finally {
             pw.close();
         }
