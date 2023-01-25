@@ -55,15 +55,27 @@ public class App {
                     break;
                 case "3":
                     System.out.println("Vous avez choisi de voir le classement");
+<<<<<<< HEAD
+                    Classement score = new Classement("IA_java/src/classement.csv");
+                    classement = new Classement("IA_java/src/classement.csv");
+                    classement.afficherClassement();
+=======
                     // Classement score = new Classement("IA_java/src/classement.csv");
                     // Classement.afficherClassement();
+>>>>>>> 27f8014ef3d0700c9d622b8be38af4b942b53cbb
                     return;
                 case "4":
                     System.out.println("Vous avez choisi de quitter le jeu\n");
                     return;
+<<<<<<< HEAD
+                    //Classement score = new Classement();
+                    //score.saveClassement("Robert", 10);
+                    //break;
+=======
                 // Classement score = new Classement();
                 // score.saveClassement("Robert", 10);
                 // break;
+>>>>>>> 27f8014ef3d0700c9d622b8be38af4b942b53cbb
                 default:
                     System.out.println("Veuillez choisir une option valide\n");
                     break;

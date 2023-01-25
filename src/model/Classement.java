@@ -20,8 +20,11 @@ public class Classement {
         this.filename = filename;
     }
 
+    public Classement() {
+    }
+
     public void csvToTopTen() throws IOException{
-        try (BufferedReader pw = new BufferedReader(new FileReader(filename))) {
+        try (BufferedReader pw = new BufferedReader(new FileReader(this.filename))) {
             topTen.clear();
 
             String line;
@@ -33,11 +36,7 @@ public class Classement {
                     String name = valeurs[0];
                     int move = Integer.parseInt(valeurs[1]);
 
-                    Classement score = new Classement(filename);
-                    score.setName(name);
-                    score.setMove(move);
-    
-                    topTen.add(score);
+                    //topTen.add(score);
                 } catch (NumberFormatException e) {
                     System.out.println("Erreur lors de la ligne");
                 }
@@ -46,8 +45,10 @@ public class Classement {
             System.out.println("Erreur lors de la lecture du fichier");
         }
     }
+    
+    
     public void topTenToCsv() {
-        try (BufferedWriter pw = new BufferedWriter(new FileWriter("classement.csv"))) {
+        try (BufferedWriter pw = new BufferedWriter(new FileWriter(this.filename))) {
             for (Classement score : topTen) {
                 String stringScore = score.toString();
                 pw.write(stringScore);
@@ -57,63 +58,69 @@ public class Classement {
             System.out.println("Erreur lors de l'écriture du fichier");
         }
     }
-
+    
     public void saveClassement(String name, int move) {
-
+    
         setName(name);
         setMove(move);
-
+    
         for (Classement score : topTen) {
             if (move < score.getMove()) {
                 int index = topTen.indexOf(score);
-
+    
                 topTen.add(index, this);
-
+    
                 if (topTen.size() > 10) {
                     topTen.remove(10);
                 }
                 break;
             }
         }
+        if(topTen.size()<10){
+            topTen.add(this);
+        }
         topTenToCsv();
         afficherClassement();
     }
-
+    
     public String getName() {
         return name;
     }
-
+    
     public int getMove() {
         return move;
     }
-
+    
     public void setName(String name) {
         this.name = name;
     }
-
+    
     public void setMove(int move) {
         this.move = move;
     }
-
+    
     public void saveScore(String name, int move)throws IOException {
+        try {
         PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(filename, true)));
         try{
             pw.write(name + ";" + move + "\n");
         } finally {
             pw.close();
         }
+        } catch (IOException e) {
+            System.out.println("Erreur lors de l'écriture du fichier");
+        }
     }
-public void afficherClassement() {
-        // csvToTopTen();
-
+    
+    public void afficherClassement() {
+    
         for (Classement score : topTen) {
             String scoreString = score.toString();
-
+    
             scoreString = scoreString.replace(";", " : ");
-
+    
             System.out.println(scoreString);
         }
-
     }
 
     @Override
