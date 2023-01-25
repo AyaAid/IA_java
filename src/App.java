@@ -35,13 +35,13 @@ public class App {
                 case "2":
                     System.out.println("\nVous avez choisi de jouer à deux\n");
                     menu.setNbjoueur(2);
-                    System.out.println("Veuillez entrer le nom du joueur 1 :");
+                    System.out.println("Veuillez entrer le nom du joueur 1 :\n");
                     String nom1 = _scan.nextLine();
                     menu.setName(nom1);
-                    System.out.println("Veuillez entrer le nom du joueur 2 :");
+                    System.out.println("Veuillez entrer le nom du joueur 2 :\n");
                     String nom2 = _scan.nextLine();
                     menu.setName(nom2);
-                    System.out.println("Choisir une couleur pour le joueur 1: ");
+                    System.out.println("Choisir une couleur pour le joueur 1:\n");
                     menu.afficherMenu("couleur");
                     String coul0 = _scan.nextLine();
                     menu.setCouleur(coul0);
@@ -55,16 +55,21 @@ public class App {
                     break;
                 case "3":
                     System.out.println("Vous avez choisi de voir le classement");
-                    Classement score = new Classement("IA_java/src/classement.csv");
+                    // Classement score = new Classement("IA_java/src/classement.csv");
+                    Classement.afficherClassement();
+
                     return;
                 case "4":
-                    System.out.println("Vous avez choisi de quitter le jeu");
+                    System.out.println("Vous avez choisi de quitter le jeu\n");
                     return;
+
+                    // Classement score = new Classement();
+                    // score.saveClassement("Robert", 10);
+                    // break;
                 default:
-                    System.out.println("Veuillez choisir une option valide");
+                    System.out.println("Veuillez choisir une option valide\n");
                     break;
             }
         }
     }
-
 }

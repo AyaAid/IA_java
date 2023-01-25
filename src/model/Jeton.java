@@ -21,6 +21,5 @@ public class Jeton {
 
     public int getColumn() {
         return column;
-    }
-    
+    } 
 }
