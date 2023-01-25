@@ -67,10 +67,6 @@ public class App {
                     //Classement score = new Classement();
                     //score.saveClassement("Robert", 10);
                     //break;
-<<<<<<< HEAD
-=======
-
->>>>>>> cb7ac917cb2d20b811240c90cce8fad99d25995e
                 default:
                     System.out.println("Veuillez choisir une option valide\n");
                     break;

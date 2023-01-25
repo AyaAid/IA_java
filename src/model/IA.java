@@ -1,3 +1,5 @@
+package model;
+
 import java.util.Random;
 //d
 
@@ -6,13 +8,6 @@ public class IA {
     private PlayerModel playerModel;
     private Minimax minimax;
     private Random rand;
-
-    public Joueur(String string, String string2) {
-        joueur2 = new Player();
-        playerModel = new PlayerModel();
-        minimax = new Minimax();
-        rand = new Random();
-    }
 
     public int jouerTour(Grille grille, int niveau) {
         int column = -1;
