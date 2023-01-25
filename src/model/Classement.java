@@ -20,7 +20,6 @@ public class Classement {
         this.filename = filename;
     }
 
-
     public void csvToTopTen() throws IOException{
         try (BufferedReader pw = new BufferedReader(new FileReader(filename))) {
             topTen.clear();
@@ -47,9 +46,7 @@ public class Classement {
             System.out.println("Erreur lors de la lecture du fichier");
         }
     }
-
-
-    public static void topTenToCsv() {
+    public void topTenToCsv() {
         try (BufferedWriter pw = new BufferedWriter(new FileWriter("classement.csv"))) {
             for (Classement score : topTen) {
                 String stringScore = score.toString();
@@ -106,8 +103,8 @@ public class Classement {
             pw.close();
         }
     }
-
-    public void afficherClassement() {
+public void afficherClassement() {
+        // csvToTopTen();
 
         for (Classement score : topTen) {
             String scoreString = score.toString();
