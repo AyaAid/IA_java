@@ -10,6 +10,9 @@ public class Jeu {
     private Joueur joueur2;
     private int move;
     Joueur currentPlayer;
+    private int rows = 6;
+    private int columns = 7;
+    private IA ia = new IA();
 
     private Scanner _scan = new Scanner(System.in);
 
@@ -74,4 +77,43 @@ public class Jeu {
     public int getMove() {
         return move;
     }
-}
+
+    public void jouerIA(){
+        grid.afficherGrille();
+        System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
+        System.out.println(currentPlayer.getCouleur());
+        System.out.println("Choisissez une colonne");
+        int column = _scan.nextInt();
+        while(!grid.gagner()){
+            if(grid.grillePleine()){
+                System.out.println("La grille est pleine, match nul");
+                break;
+            }
+            if(currentPlayer.getCouleur().equals("⚪️")){
+                column = ia.jouerTour(grid, 1);
+            }
+            grid.addJeton(currentPlayer.getCouleur(), column);
+            grid.afficherGrille();
+            move++;
+            if (!grid.gagner()) {
+                switchPlayer();
+                if(currentPlayer.getCouleur().equals("⚪️")){
+                    column = ia.jouerTour(grid, 1);
+                }else{
+                    System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
+                    System.out.println(currentPlayer.getCouleur());
+                    System.out.println("Choisissez une colonne");
+                    column = _scan.nextInt();
+                }
+                
+            }
+        }
+        System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
+
+        Classement score = new Classement("IA_java/src/classement.csv");
+        score.saveClassement(getCurrentPlayer().getJoueur(), getMove());
+        }
+
+
+
+    }

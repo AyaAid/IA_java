@@ -1,12 +1,14 @@
 package model;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 
 public class Menu {
     private int nbjoueur;
-    private ArrayList<String> couleur = new ArrayList<>();
+    static List<String> couleur = new ArrayList<String>(); 
     private ArrayList<String> name = new ArrayList<>();
+    public static String coul;
 
     public Menu() {
         nbjoueur = getNbjoueur();
@@ -30,8 +32,8 @@ public class Menu {
     }
 
     public ArrayList<String> getCouleur() {
-        return couleur;
-    }
+        return (ArrayList<String>) couleur;
+    } 
 
     public void setCouleur(String coul) {
         if(coul.equals("1")){

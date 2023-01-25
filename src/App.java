@@ -25,9 +25,9 @@ public class App {
                     System.out.println("Choisir une couleur pour le joueur: ");
                     menu.afficherMenu("couleur");
                     String coul = _scan.nextLine();
-                    menu.setName(coul);
+                    menu.setCouleur(coul);
                     jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur());
-                    jeu.start_game();
+                    jeu.jouerIA();
                     // menu.afficherMenu("niveau");
                     // String symb = _scan.nextLine();
                     // menu.setName(symb);
