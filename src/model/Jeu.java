@@ -17,7 +17,7 @@ public class Jeu {
         grid = new Grille();
         joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0));
         if (nombreJoueur == 2) {
-            joueur2 = new Joueur((String) name.get(1), couleur.get(1));
+            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1));
         } else {
             couleur.add("⚪️");
             joueur2 = new Joueur("IA", (String) couleur.get(1));
