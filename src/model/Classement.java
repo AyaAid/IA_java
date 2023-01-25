@@ -29,7 +29,6 @@ public class Classement {
 
             String line;
             while ((line = pw.readLine()) != null) {
-
                 try {
                     String[] valeurs = line.split(";");
 
@@ -45,7 +44,6 @@ public class Classement {
             System.out.println("Erreur lors de la lecture du fichier");
         }
     }
-    
     
     public void topTenToCsv() {
         try (BufferedWriter pw = new BufferedWriter(new FileWriter(this.filename))) {

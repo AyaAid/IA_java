@@ -48,7 +48,7 @@ public class Jeu {
             }
         }
         System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
-
+        grid.reinitialiserGrille();
         Classement score = new Classement("IA_java/src/classement.csv");
         score.saveClassement(getCurrentPlayer().getJoueur(), getMove());
         // Classement score = new Classement("IA_java/src/classement.csv");
