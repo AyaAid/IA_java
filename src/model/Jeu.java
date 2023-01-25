@@ -25,7 +25,6 @@ public class Jeu {
         }
         currentPlayer = joueur1;
     }
-
     public void start_game() {
         grid.afficherGrille();
         System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");

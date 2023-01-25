@@ -24,7 +24,7 @@ public class Classement {
     }
 
     public static void csvToTopTen() throws IOException{
-        try (BufferedReader pw = new BufferedReader(new FileReader("classement.csv"))) {
+        try (BufferedReader pw = new BufferedReader(new FileReader(filename))) {
             topTen.clear();
 
             String line;
@@ -111,25 +111,6 @@ public class Classement {
     }
 
     public static void afficherClassement() {
-        // try (BufferedReader br = new BufferedReader(new FileReader("classement.csv"))) {
-        //     int comparescore = 0;
-        //         String comparename = "";
-        //         String line = br.readLine();
-        //         while (line != null) {
-        //             String[] parts = line.split(";");
-        //             String name = parts[0];
-        //             int score = Integer.parseInt(parts[1]);
-        //             if(score < comparescore){
-        //                 comparescore = score;
-        //                 comparename = name;
-        //             }
-        //             line = br.readLine();
-        //         }
-        //         System.out.println("Le meilleur score est de " + comparescore + " par " + comparename);
-        // } catch (NumberFormatException e) {
-        //     e.printStackTrace();
-        // }
-
         csvToTopTen();
 
         for (Classement score : topTen) {
