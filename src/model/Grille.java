@@ -51,7 +51,7 @@ public class Grille {
     }
 
     public boolean colonnePleine(int column) {
-        if (grid.get(0).get(column) != null) {
+        if (grid.get(0).get(column + 1) != null) {
             return true;
         }
         return false;

@@ -17,13 +17,14 @@ public class Jeu {
         grid = new Grille();
         joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0));
         if (nombreJoueur == 2) {
-            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1));
+            joueur2 = new Joueur((String) name.get(1), couleur.get(1));
         } else {
             couleur.add("⚪️");
             joueur2 = new Joueur("IA", (String) couleur.get(1));
         }
         currentPlayer = joueur1;
     }
+
     public void start_game() {
         grid.afficherGrille();
         System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
@@ -52,9 +53,9 @@ public class Jeu {
         score.saveClassement(getCurrentPlayer().getJoueur(), getMove());
         // Classement score = new Classement("IA_java/src/classement.csv");
         // try {
-        //     score.saveScore(currentPlayer.getJoueur(), move);
+        // score.saveScore(currentPlayer.getJoueur(), move);
         // } catch (IOException e) {
-        //     System.out.println("Erreur lors de l'écriture du fichier");
+        // System.out.println("Erreur lors de l'écriture du fichier");
         // }
     }
 
