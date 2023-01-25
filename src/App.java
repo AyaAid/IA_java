@@ -36,25 +36,25 @@ public class App {
                 case "2":
                     System.out.println("\nVous avez choisi de jouer à deux\n");
                     menu.setNbjoueur(2);
-                    System.out.println("Veuillez entrer le nom du joueur 1 :");
+                    System.out.println("Veuillez entrer le nom du joueur 1 :\n");
                     String nom1 = _scan.nextLine();
                     menu.setName(nom1);
-                    System.out.println("Veuillez entrer le nom du joueur 2 :");
+                    System.out.println("Veuillez entrer le nom du joueur 2 :\n");
                     String nom2 = _scan.nextLine();
                     menu.setName(nom2);
-                    System.out.println("Choisir une couleur pour le joueur 1: ");
+                    System.out.println("Choisir une couleur pour le joueur 1:\n");
                     menu.afficherMenu("couleur");
                     String coul0 = _scan.nextLine();
                     menu.setCouleur(coul0);
-                    System.out.println("Choisir une couleur pour le joueur 2: ");
+                    System.out.println("Choisir une couleur pour le joueur 2:\n");
                     menu.afficherMenu("couleur");
                     String coul1 = _scan.nextLine();
                     menu.setCouleur(coul1);
-                    System.out.println("Choisir un symbole pour le joueur 1: ");
+                    System.out.println("Choisir un symbole pour le joueur 1:\n");
                     menu.afficherMenu("symbole");
                     String symb0 = _scan.nextLine();
                     menu.setSymbole(symb0);
-                    System.out.println("Choisir un symbole pour le joueur 2: ");
+                    System.out.println("Choisir un symbole pour le joueur 2:\n");
                     menu.afficherMenu("symbole");
                     String symb1 = _scan.nextLine();
                     menu.setSymbole(symb1);
@@ -62,17 +62,17 @@ public class App {
                     jeu.start_game();
                     break;
                 case "3":
-                    System.out.println("Vous avez choisi de voir le classement");
-                    Classement score = new Classement("IA_java/src/classement.csv");
+                    System.out.println("Vous avez choisi de voir le classement\n");
+                    Classement score = new Classement("IA_java/src/classement.csv\n");
+                    score.afficherClassement();
                     return;
                 case "4":
-                    System.out.println("Vous avez choisi de quitter le jeu");
+                    System.out.println("Vous avez choisi de quitter le jeu\n");
                     return;
                 default:
-                    System.out.println("Veuillez choisir une option valide");
+                    System.out.println("Veuillez choisir une option valide\n");
                     break;
             }
         }
     }
-
 }

@@ -38,6 +38,7 @@ public class Menu {
     }
 
     public void setSymbole(String symb) {
+        getCouleur();
         symbole.add(symb);
     }
 
@@ -105,4 +106,3 @@ public class Menu {
     }
 
 }
-
