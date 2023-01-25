@@ -1,4 +1,5 @@
 import java.util.Random;
+//d
 
 public class IA {
     private Player joueur2;
