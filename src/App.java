@@ -1,4 +1,3 @@
-
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -9,10 +8,12 @@ import model.Menu;
 
 public class App {
     private static Scanner _scan = new Scanner(System.in);
+    
     public static void main(String[] args) throws Exception {
         
         Menu menu = new Menu();
         Jeu jeu = new Jeu();
+        Classement classement;
         while (true) {
             menu.afficherMenu("principale");
             switch (_scan.nextLine()) {
@@ -56,7 +57,8 @@ public class App {
                 case "3":
                     System.out.println("Vous avez choisi de voir le classement");
                     // Classement score = new Classement("IA_java/src/classement.csv");
-                    Classement.afficherClassement();
+                    classement = new Classement("IA_java/src/classement.csv");
+                    classement.afficherClassement();
                     return;
                 case "4":
                     System.out.println("Vous avez choisi de quitter le jeu\n");

@@ -24,7 +24,6 @@ public class Jeu {
         }
         currentPlayer = joueur1;
     }
-
     public void start_game() {
         grid.afficherGrille();
         System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
@@ -49,7 +48,7 @@ public class Jeu {
         }
         System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
 
-        Classement score = new Classement();
+        Classement score = new Classement("IA_java/src/classement.csv");
         score.saveClassement(getCurrentPlayer().getJoueur(), getMove());
         // Classement score = new Classement("IA_java/src/classement.csv");
         // try {

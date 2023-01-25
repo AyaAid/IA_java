@@ -20,11 +20,8 @@ public class Classement {
         this.filename = filename;
     }
 
-    public Classement() {
-    }
-
-    public static void csvToTopTen() throws IOException{
-        try (BufferedReader pw = new BufferedReader(new FileReader("classement.csv"))) {
+    public void csvToTopTen() throws IOException{
+        try (BufferedReader pw = new BufferedReader(new FileReader(filename))) {
             topTen.clear();
 
             String line;
@@ -36,7 +33,7 @@ public class Classement {
                     String name = valeurs[0];
                     int move = Integer.parseInt(valeurs[1]);
 
-                    Classement score = new Classement();
+                    Classement score = new Classement(filename);
                     score.setName(name);
                     score.setMove(move);
     
@@ -49,9 +46,7 @@ public class Classement {
             System.out.println("Erreur lors de la lecture du fichier");
         }
     }
-
-
-    public static void topTenToCsv() {
+    public void topTenToCsv() {
         try (BufferedWriter pw = new BufferedWriter(new FileWriter("classement.csv"))) {
             for (Classement score : topTen) {
                 String stringScore = score.toString();
@@ -64,7 +59,6 @@ public class Classement {
     }
 
     public void saveClassement(String name, int move) {
-        // csvToTopTen();
 
         setName(name);
         setMove(move);
@@ -109,28 +103,8 @@ public class Classement {
             pw.close();
         }
     }
-
-    public static void afficherClassement() {
-        // try (BufferedReader br = new BufferedReader(new FileReader("classement.csv"))) {
-        //     int comparescore = 0;
-        //         String comparename = "";
-        //         String line = br.readLine();
-        //         while (line != null) {
-        //             String[] parts = line.split(";");
-        //             String name = parts[0];
-        //             int score = Integer.parseInt(parts[1]);
-        //             if(score < comparescore){
-        //                 comparescore = score;
-        //                 comparename = name;
-        //             }
-        //             line = br.readLine();
-        //         }
-        //         System.out.println("Le meilleur score est de " + comparescore + " par " + comparename);
-        // } catch (NumberFormatException e) {
-        //     e.printStackTrace();
-        // }
-
-        csvToTopTen();
+public void afficherClassement() {
+        // csvToTopTen();
 
         for (Classement score : topTen) {
             String scoreString = score.toString();
