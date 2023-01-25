@@ -31,15 +31,6 @@ public class Menu {
         this.nbjoueur = nbjoueur;
     }
 
-    public ArrayList<String> getSymbole() {
-        return getSymbole();
-    }
-
-    public void setSymbole(String symb) {
-        getCouleur();
-        SymbolLookup.add(symb);
-    }
-
     public ArrayList<String> getCouleur() {
         return couleur;
     }

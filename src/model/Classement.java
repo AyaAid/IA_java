@@ -20,10 +20,8 @@ public class Classement {
         this.filename = filename;
     }
 
-    public Classement() {
-    }
 
-    public static void csvToTopTen() throws IOException{
+    public void csvToTopTen() throws IOException{
         try (BufferedReader pw = new BufferedReader(new FileReader(filename))) {
             topTen.clear();
 
@@ -36,7 +34,7 @@ public class Classement {
                     String name = valeurs[0];
                     int move = Integer.parseInt(valeurs[1]);
 
-                    Classement score = new Classement();
+                    Classement score = new Classement(filename);
                     score.setName(name);
                     score.setMove(move);
     
@@ -64,7 +62,6 @@ public class Classement {
     }
 
     public void saveClassement(String name, int move) {
-        // csvToTopTen();
 
         setName(name);
         setMove(move);
@@ -110,8 +107,7 @@ public class Classement {
         }
     }
 
-    public static void afficherClassement() {
-        csvToTopTen();
+    public void afficherClassement() {
 
         for (Classement score : topTen) {
             String scoreString = score.toString();
