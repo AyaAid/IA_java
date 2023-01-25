@@ -1,8 +1,6 @@
 package model;
-import java.lang.foreign.SymbolLookup;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Scanner;
 
 
 public class Menu {
@@ -29,15 +27,6 @@ public class Menu {
 
     public void setNbjoueur(int nbjoueur) {
         this.nbjoueur = nbjoueur;
-    }
-
-    public ArrayList<String> getSymbole() {
-        return getSymbole();
-    }
-
-    public void setSymbole(String symb) {
-        getCouleur();
-        SymbolLookup.add(symb);
     }
 
     public ArrayList<String> getCouleur() {

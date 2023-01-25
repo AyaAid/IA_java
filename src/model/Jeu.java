@@ -1,6 +1,5 @@
 package model;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 //on clique sur le menu pour sélectionner le mode
@@ -14,7 +13,7 @@ public class Jeu {
 
     private Scanner _scan = new Scanner(System.in);
 
-    public void Jouer(int nombreJoueur, ArrayList name, ArrayList couleur) {
+    public void Jouer(int nombreJoueur, ArrayList<String> name, ArrayList<String> couleur) {
         grid = new Grille();
         joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0));
         if (nombreJoueur == 2) {
