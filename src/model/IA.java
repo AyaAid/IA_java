@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Joueur {
+public class IA {
     private Player joueur2;
     private PlayerModel playerModel;
     private Minimax minimax;

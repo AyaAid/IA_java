@@ -19,6 +19,4 @@ public class Joueur {
         return couleur;
         
     }
-
-
 }
