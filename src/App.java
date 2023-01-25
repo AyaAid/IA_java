@@ -8,12 +8,11 @@ import model.Menu;
 
 public class App {
     private static Scanner _scan = new Scanner(System.in);
-    
+
     public static void main(String[] args) throws Exception {
-        
+
         Menu menu = new Menu();
         Jeu jeu = new Jeu();
-        Classement classement;
         while (true) {
             menu.afficherMenu("principale");
             switch (_scan.nextLine()) {
@@ -46,9 +45,9 @@ public class App {
                     menu.afficherMenu("couleur");
                     String coul0 = _scan.nextLine();
                     menu.setCouleur(coul0);
-                    if(Objects.equals(menu.getCouleur().get(0), "🔴")){
+                    if (Objects.equals(menu.getCouleur().get(0), "🔴")) {
                         menu.setCouleur("2");
-                    } else{
+                    } else {
                         menu.setCouleur("1");
                     }
                     jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur());
@@ -57,15 +56,14 @@ public class App {
                 case "3":
                     System.out.println("Vous avez choisi de voir le classement");
                     // Classement score = new Classement("IA_java/src/classement.csv");
-                    classement = new Classement("IA_java/src/classement.csv");
-                    classement.afficherClassement();
+                    // Classement.afficherClassement();
                     return;
                 case "4":
                     System.out.println("Vous avez choisi de quitter le jeu\n");
                     return;
-                    // Classement score = new Classement();
-                    // score.saveClassement("Robert", 10);
-                    // break;
+                // Classement score = new Classement();
+                // score.saveClassement("Robert", 10);
+                // break;
                 default:
                     System.out.println("Veuillez choisir une option valide\n");
                     break;

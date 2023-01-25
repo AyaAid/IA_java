@@ -6,7 +6,7 @@ public class Joueur {
     private Minimax minimax;
     private Random rand;
 
-    public Joueur() {
+    public Joueur(String string, String string2) {
         joueur2 = new Player();
         playerModel = new PlayerModel();
         minimax = new Minimax();
@@ -36,5 +36,13 @@ public class Joueur {
             column = minimax.findBestMove(grille, joueur2.getCouleur());
         }
         return column;
+    }
+
+    public String getJoueur() {
+        return null;
+    }
+
+    public String getCouleur() {
+        return null;
     }
 }
