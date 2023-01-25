@@ -25,9 +25,9 @@ public class App {
                     System.out.println("Choisir une couleur pour le joueur: ");
                     menu.afficherMenu("couleur");
                     String coul = _scan.nextLine();
-                    menu.setName(coul);
+                    menu.setCouleur(coul);
                     jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur());
-                    jeu.start_game();
+                    jeu.jouerIA();
                     // menu.afficherMenu("niveau");
                     // String symb = _scan.nextLine();
                     // menu.setName(symb);
@@ -67,10 +67,6 @@ public class App {
                     //Classement score = new Classement();
                     //score.saveClassement("Robert", 10);
                     //break;
-<<<<<<< HEAD
-=======
-
->>>>>>> cb7ac917cb2d20b811240c90cce8fad99d25995e
                 default:
                     System.out.println("Veuillez choisir une option valide\n");
                     break;

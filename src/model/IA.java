@@ -1,40 +1,28 @@
+package model;
+
 import java.util.Random;
 //d
 
 public class IA {
-    private Player joueur2;
-    private PlayerModel playerModel;
-    private Minimax minimax;
-    private Random rand;
+    private Joueur joueur2;
 
-    public Joueur(String string, String string2) {
-        joueur2 = new Player();
-        playerModel = new PlayerModel();
-        minimax = new Minimax();
-        rand = new Random();
+    private Random rand = new Random();
+    private int rows =  6;
+    private int columns = 7;
+
+    public IA() {
     }
 
     public int jouerTour(Grille grille, int niveau) {
         int column = -1;
         if (niveau == 1) {
-            column = rand.nextInt(grille.getColonnes());
+            column = rand.nextInt(columns);
         } else if (niveau == 2) {
-            for (int c = 0; c < grille.getColonnes(); c++) {
-                if (grille.isAligned(c, joueur2.getCouleur())) {
-                    column = c;
-                    break;
-                }
-            }
-            if (column == -1) {
-                column = rand.nextInt(grille.getColonnes());
-            } else {
-                column = column + 1;
-            }
+
         } else if (niveau == 3) {
-            column = playerModel.predictNextMove(grille.getPreviousMoves());
-            column = (column + 1) % grille.getColonnes();
+
         } else if (niveau == 4) {
-            column = minimax.findBestMove(grille, joueur2.getCouleur());
+
         }
         return column;
     }
@@ -46,4 +34,5 @@ public class IA {
     public String getCouleur() {
         return null;
     }
+
 }

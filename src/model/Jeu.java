@@ -10,6 +10,9 @@ public class Jeu {
     private Joueur joueur2;
     private int move;
     Joueur currentPlayer;
+    private int rows = 6;
+    private int columns = 7;
+    private IA ia = new IA();
 
     private Scanner _scan = new Scanner(System.in);
 
@@ -87,17 +90,22 @@ public class Jeu {
                 break;
             }
             if(currentPlayer.getCouleur().equals("⚪️")){
-                // column = IA.choixColonne(grid);
+                column = ia.jouerTour(grid, 1);
             }
             grid.addJeton(currentPlayer.getCouleur(), column);
             grid.afficherGrille();
             move++;
             if (!grid.gagner()) {
                 switchPlayer();
-                System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
-                System.out.println(currentPlayer.getCouleur());
-                System.out.println("Choisissez une colonne");
-                column = _scan.nextInt();
+                if(currentPlayer.getCouleur().equals("⚪️")){
+                    column = ia.jouerTour(grid, 1);
+                }else{
+                    System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
+                    System.out.println(currentPlayer.getCouleur());
+                    System.out.println("Choisissez une colonne");
+                    column = _scan.nextInt();
+                }
+                
             }
         }
         System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
@@ -105,4 +113,7 @@ public class Jeu {
         Classement score = new Classement("IA_java/src/classement.csv");
         score.saveClassement(getCurrentPlayer().getJoueur(), getMove());
         }
+
+
+
     }
