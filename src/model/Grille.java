@@ -38,7 +38,7 @@ public class Grille {
     }
 
     public void addJeton(String symbole, int column) {
-        if (column > 0 && column <= columns) {
+        if (column > 0 && column <= columns && !colonnePleine(column)) {
             for (int i = rows - 1; i >= 0; i--) {
                 if (grid.get(i).get(column - 1) == null) {
                     grid.get(i).set(column - 1, symbole);
@@ -46,7 +46,7 @@ public class Grille {
                 }
             }
         } else {
-            System.out.println("colonne n'existe pas");
+            System.out.println("Vous ne pouvez pas sélectionner cette colonne !");
         }
     }
 
