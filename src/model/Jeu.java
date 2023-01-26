@@ -1,20 +1,41 @@
 package model;
+//Cette ligne déclare le package auquel appartient la classe Jeu. Elle permet d'organiser le code et d'assurer que les classes qui ont le même nom sont bien placées dans le même package.
 
 import java.util.ArrayList;
+//Cette ligne importe la classe ArrayList de Java. Cela permet d'utiliser les méthodes de la classe dans le code.
+
 import java.util.Scanner;
 //on clique sur le menu pour sélectionner le mode
 
 public class Jeu {
+    //Cette ligne déclare la classe Jeu et ses membres. Les membres incluent des variables et des méthodes qui peuvent être utilisées par les objets de cette classe.
+
     private Grille grid = new Grille();
+    //Cette ligne déclare une nouvelle instance de Grille et la stocke dans la variable grid.
+
     Joueur joueur1;
+    //Cette ligne déclare une nouvelle instance de Joueur et la stocke dans la variable joueur1.
+
     private Joueur joueur2;
+    //Cette ligne déclare une nouvelle instance de Joueur et la stocke dans la variable joueur2.
+
     private int move;
+    //Cette ligne déclare une variable de type entier (move) qui compte le nombre de mouvements effectués.
+
     Joueur currentPlayer;
+    //Cette ligne déclare une variable de type Joueur qui stocke le joueur actuel.
+
     private int rows = 6;
     private int columns = 7;
+    //Cette ligne déclare deux variables de type entier qui définissent le nombre de lignes et de colonnes de la grille.
+
     private IA ia = new IA();
+    //Cette ligne déclare une nouvelle instance de l'IA et la stocke dans la variable ia.
+
 
     private Scanner _scan = new Scanner(System.in);
+    //Cette ligne déclare une nouvelle instance de Scanner et la stocke dans la variable _scan.
+
 
     public void Jouer(int nombreJoueur, ArrayList<String> name, ArrayList<String> couleur) {
         grid = new Grille();
@@ -27,10 +48,16 @@ public class Jeu {
         }
         currentPlayer = joueur1;
     }
+    //Cette ligne définit une méthode qui prend en entrée le nombre de joueurs, leur nom et leur couleur et initialise les variables (joueur1 et joueur2).
+
 
     public void start_game() {
+        //Cette ligne définit une méthode qui démarre le jeu.
+
         grid.afficherGrille();
         System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
+        //Cette ligne définit une méthode qui change de joueur à chaque tour.
+
         System.out.println(currentPlayer.getCouleur());
         System.out.println("Choisissez une colonne");
         int column = _scan.nextInt();
@@ -79,6 +106,8 @@ public class Jeu {
     }
 
     public void jouerIA() {
+        //Cette ligne définit une méthode qui permet à l'IA de jouer.
+
         grid.afficherGrille();
         System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
         System.out.println(currentPlayer.getCouleur());
