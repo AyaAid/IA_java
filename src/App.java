@@ -30,6 +30,12 @@ public class App {
                     menu.afficherMenu("couleur");
                     String coul = _scan.nextLine();
                     menu.setCouleur(coul);
+
+                    System.out.println("Choisir un niveau de difficulté: ");
+                    menu.afficherMenu("niveau");
+                    String niv = _scan.nextLine();
+                    menu.setNiveau(niv);
+                    
                     jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur());
                     jeu.jouerIA();
                     // Cette ligne appelle la méthode Jouer() sur l'objet Jeu pour lancer le jeu. 

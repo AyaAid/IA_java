@@ -90,4 +90,9 @@ else{ // Cette condition permet d'afficher le message "Veuillez choisir une opti
     menus.add("Veuillez choisir une option :"); // Cette ligne ajoute le message à la liste des menus.
         }
     }
+
+    public void setNiveau(String niv) {
+    }
+    
+
 } // Cette ligne ferme la condition else.
