@@ -1,5 +1,3 @@
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner; 
 import model.Classement;
@@ -67,7 +65,7 @@ public class App {
                         coul0 = _scan.nextLine();
                     }
                     menu.setCouleur(coul0);
-                    if (Objects.equals(menu.getCouleur().get(0), "🔴")) {
+                    if (Objects.equals(menu.getCouleur().get(menu.getCouleur().size()-1), "🔴")) {
                         menu.setCouleur("2");
                     } else {
                         menu.setCouleur("1");

@@ -14,8 +14,6 @@ public class Classement implements Comparable<Classement> {
     private static final String SEPARATEUR = ";";
     private String name;
     private int move;
-    // private ArrayList<Classement> topTen = new ArrayList<Classement>(); //
-    // Attribut pour stocker les scores des 10 meilleurs joueurs
 
     public String getName() {
         return name;
@@ -47,7 +45,6 @@ public class Classement implements Comparable<Classement> {
         try (BufferedReader pw = new BufferedReader(new FileReader("classement.csv"))) {
             String line;
             while ((line = pw.readLine()) != null) {
-                try {
                     String[] valeurs = line.split(SEPARATEUR); // Séparer les valeurs de chaque ligne
 
                     String name = valeurs[0]; // Stocker les valeurs dans les attributs name et move
@@ -57,11 +54,9 @@ public class Classement implements Comparable<Classement> {
                     score.setMove(move);
                     liste.add(score); // Ajouter les données dans topTen
 
-                } catch (NumberFormatException e) {
-                    System.out.println("Erreur lors de la ligne");
                 }
             }
-        } catch (IOException e) {
+         catch (IOException e) {
             System.out.println("Erreur lors de la lecture du fichier");
         }
         return liste;
@@ -83,16 +78,6 @@ public class Classement implements Comparable<Classement> {
             System.out.println(classement.toString());
         }
     }
-
-    // public void trierClassements() throws IOException {
-    //     ArrayList<Classement> topten = lister();
-    //     Collections.sort(topten, new Comparator<Classement>() {
-    //         @Override
-    //         public int compare(Classement c1, Classement c2) {
-    //             return Integer.compare(c1.getMove(), c2.getMove());
-    //         }
-    //     });
-    // }
 
     public void ajouterScore(String joueur, int move) {
         setName(joueur);
@@ -122,6 +107,8 @@ public class Classement implements Comparable<Classement> {
     public String toString() {
         return this.name + ";" + this.move;
     };
+
+
 
     // public Classement(String filename) { // Constructeur pour initialiser le nom
     // du fichier CSV

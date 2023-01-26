@@ -17,12 +17,11 @@ public class Jeu {
 
     public void Jouer(int nombreJoueur, ArrayList<String> name, ArrayList<String> couleur) {
         grid = new Grille();
-        joueur1 = new Joueur((String) name.get(0), (String) couleur.get(0));
+        joueur1 = new Joueur((String) name.get(name.size()-1), (String) couleur.get(couleur.size()-1));
         if (nombreJoueur == 2) {
-            joueur2 = new Joueur((String) name.get(1), (String) couleur.get(1));
+            joueur2 = new Joueur((String) name.get(name.size()-2), (String) couleur.get(couleur.size()-2));
         } else {
-            couleur.add("⚪️");
-            joueur2 = new Joueur("IA", (String) couleur.get(1));
+            joueur2 = new Joueur("IA", "⚪️");
         }
         currentPlayer = joueur1;
     } //Cette ligne définit une méthode qui prend en entrée le nombre de joueurs, leur nom et leur couleur et initialise les variables (joueur1 et joueur2).
