@@ -103,7 +103,7 @@ public class Jeu {
                 break;
             }
             if (currentPlayer.getCouleur().equals("⚪️")) {
-                grid.IA2(joueur1.getCouleur());
+                grid.IA3(joueur1.getCouleur());
             } else {
                 grid.addJeton(currentPlayer.getCouleur(), column);
             }
