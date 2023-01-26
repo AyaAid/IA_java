@@ -1,32 +1,38 @@
 package model;
+
 import model.*;
 import java.util.*;
 
 public class Grille {
     private static int rows = 6;
     private static int columns = 7;
-    static ArrayList<ArrayList<String>> grid = new ArrayList<ArrayList<String>>();
+    private ArrayList<ArrayList<String>> grid = new ArrayList<ArrayList<String>>();
+    private IA ia = new IA();
 
     public Grille() {
         for (int i = 0; i < rows; i++) {
             grid.add(new ArrayList<String>());
             for (int j = 0; j < columns; j++) {
-                grid.get(i).add(null);
+                grid.get(i).add(" ");
             }
         }
     }
 
+    public ArrayList<ArrayList<String>> getGrid() {
+        return grid;
+    }
+
     public void afficherGrille() {
 
-        System.out.println("    1    2    3    4    5    6    7 ");
+        System.out.println("    0    1    2    3    4    5    6 ");
         for (int c = 1; c <= columns; c++) {
-            System.out.print(" ");  // ajouté
+            System.out.print(" "); // ajouté
         }
         System.out.println();
         for (int i = 0; i < rows; i++) {
             System.out.print("  "); // ajouté
             for (int c = 0; c < columns; c++) {
-                if (grid.get(i).get(c) == null) {
+                if (grid.get(i).get(c).equals(" ")) {
                     System.out.print("|   |");
                 } else {
                     System.out.print("| " + grid.get(i).get(c) + "|");
@@ -38,10 +44,10 @@ public class Grille {
     }
 
     public void addJeton(String symbole, int column) {
-        if (column > 0 && column <= columns && !colonnePleine(column)) {
+        if (column >= 0 && column <= columns -1 && !colonnePleine(column)) {
             for (int i = rows - 1; i >= 0; i--) {
-                if (grid.get(i).get(column - 1) == null) {
-                    grid.get(i).set(column - 1, symbole);
+                if (grid.get(i).get(column).equals(" ")) {
+                    grid.get(i).set(column, symbole);
                     break;
                 }
             }
@@ -51,7 +57,7 @@ public class Grille {
     }
 
     public boolean colonnePleine(int column) {
-        if (grid.get(0).get(column + 1) != null) {
+        if (!grid.get(0).get(column).equals(" ")) {
             return true;
         }
         return false;
@@ -60,7 +66,7 @@ public class Grille {
     public void reinitialiserGrille() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                grid.get(i).set(j, null);
+                grid.get(i).set(j, " ");
             }
         }
     }
@@ -68,7 +74,7 @@ public class Grille {
     public boolean grillePleine() {
         for (int i = 0; i < grid.size(); i++) {
             for (int j = 0; j < grid.get(i).size(); j++) {
-                if (grid.get(i).get(j) == null) {
+                if (grid.get(i).get(j).equals(" ")) {
                     return false;
                 }
             }
@@ -79,7 +85,7 @@ public class Grille {
     public boolean gagner() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                if (grid.get(i).get(j) != null) {
+                if (!grid.get(i).get(j).equals(" ")) {
                     if (i + 3 < rows) { // vérifier une victoire en ligne
                         if (grid.get(i).get(j) == grid.get(i + 1).get(j) && grid.get(i).get(j) == grid.get(i + 2).get(j)
                                 && grid.get(i).get(j) == grid.get(i + 3).get(j)) {
@@ -112,46 +118,37 @@ public class Grille {
         return false;
     }
 
-
-    public boolean IA2(){
+    public void IA2(String symbol) {
+        boolean jouer = false;
+        // test ligne
         for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                if (grid.get(i).get(j) != null) {
-                    if(i+2 < rows) { // vérifier si trois pions sont alignés en ligne 
-                        if (grid.get(i).get(j) == grid.get(i + 1).get(j) && grid.get(i).get(j) == grid.get(i + 2).get(j)) {
-                            if(grid.get(i+3).get(j) == null){
-                                grid.get(i+3).set(j, "R");
-                                return true;
-                            }
-                        }
-                    }
-                    if(j+3 < columns) { // vérifier si trois pions sont alignés en colonne
-                        if (grid.get(i).get(j) == grid.get(i).get(j + 1) && grid.get(i).get(j) == grid.get(i).get(j + 2)) {
-                            if(grid.get(i).get(j+3) == null){
-                                grid.get(i).set(j+3, "R");
-                                return true;
-                            }
-                        }
-                    }
-                    if(i+3 < rows && j+3 < columns) { // Vérifier si trois pions sont alignés en diagonale vers la droite
-                        if (grid.get(i).get(j) == grid.get(i + 1).get(j + 1) && grid.get(i).get(j) == grid.get(i + 2).get(j + 2)) {
-                            if(grid.get(i+3).get(j+3) == null){
-                                grid.get(i+3).set(j+3, "R");
-                                return true;
-                            }
-                        }
-                    }
-                    if(i+3 < rows && j-3 >= 0) { // vérifier si trois pions sont alignés en diagonale vers la gauche
-                        if (grid.get(i).get(j) == grid.get(i + 1).get(j - 1) && grid.get(i).get(j) == grid.get(i + 2).get(j - 2)) {
-                            if(grid.get(i+3).get(j-3) == null){
-                                grid.get(i+3).set(j-3, "R");
-                                return true;
-                            }
-                        }
-                    }
+            for (int j = 0; j < columns - 3; j++) {
+                if(grid.get(i).get(j).equals(symbol) && grid.get(i).get(j+1).equals(symbol) && grid.get(i).get(j+2).equals(symbol) && grid.get(i).get(j+3).equals(" ")){
+                    System.out.println(j + 3 + "ligne");
+                    jouer = true;
+                    addJeton("⚪️", j + 3);
+                    break;
                 }
             }
         }
-        return false;
-    }
+
+        // test colonne
+        for(int j = 0; j < columns; j++){
+            for(int i = 5; i >= 0; i--){
+                if(grid.get(i).get(j).equals(symbol) && grid.get(i-1).get(j).equals(symbol) && grid.get(i-2).get(j).equals(symbol) && grid.get(i-3).get(j).equals(" ")){
+                    System.out.println(j + "colonne");
+                    jouer = true;
+                    addJeton("⚪️", j);
+                    break;
+                }
+            }
+        }
+
+        // test diagonale 
+
+        if(!jouer){
+        System.out.println("pif");
+        addJeton("⚪️", ia.jouerTour(new Grille(), 1));
+        }
+}
 }

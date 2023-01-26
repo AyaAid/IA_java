@@ -5,7 +5,6 @@ import java.util.Random;
 
 public class IA {
     private Random rand = new Random();
-    private int columns = 7;
 
     public IA() {
     }
@@ -13,7 +12,7 @@ public class IA {
     public int jouerTour(Grille grille, int niveau) {
         int column = -1;
         if (niveau == 1) {
-            column = rand.nextInt(columns);
+            column = rand.nextInt(6 - 0)+0;
         } else if (niveau == 2) {
 
         } else if (niveau == 3) {
