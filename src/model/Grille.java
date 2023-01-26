@@ -223,4 +223,91 @@ public class Grille {
 
         return col;
     }
+    public int IA3(String symbol) {
+        int col = 0;
+        boolean jouer = false;
+        // test ligne
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns - 3; j++) {
+                if (grid.get(i).get(j).equals(symbol) && grid.get(i).get(j + 1).equals(symbol)
+                        && grid.get(i).get(j + 2).equals(symbol) && grid.get(i).get(j + 3).equals(" ")) {
+                    System.out.println(j + 3 + "ligne");
+                    jouer = true;
+                    addJeton("⚪️", j + 3);
+                    col = j + 3;
+                    break;
+                }
+            }
+        } // Cette ligne déclare une méthode publique qui peut être utilisée pour implémenter l'intelligence artificielle. Elle effectue différents tests pour vérifier si un joueur est sur le point de gagner, et si c'est le cas, elle joue le coup pour l'empêcher de gagner.
+
+        // test colonne
+        for (int j = 0; j < columns; j++) {
+            for (int i = 5; i >= 0; i--) {
+                if (grid.get(i).get(j).equals(symbol) && grid.get(i - 1).get(j).equals(symbol)
+                        && grid.get(i - 2).get(j).equals(symbol) && grid.get(i - 3).get(j).equals(" ")) {
+                    System.out.println(j + "colonne");
+                    jouer = true;
+                    addJeton("⚪️", j);
+                    col = j;
+                    break;
+
+                }
+            }
+        }
+
+        for (int i = 5; i < rows - 3; i++) {
+            for (int j = 0; j < columns - 3; j++) {
+                // test diagonale haut
+                if (grid.get(i).get(j).equals(symbol)
+                        && grid.get(i + 1).get(j + 1).equals(symbol)
+                        && grid.get(i + 2).get(j + 2).equals(symbol)
+                        && grid.get(i + 3).get(j + 3).equals(" ")
+                        && !grid.get(i + 2).get(j + 3).equals(" ")) {
+                    System.out.println(j + 3 + " diag haut");
+                    jouer = true;
+                    addJeton("⚪️", j + 3);
+                    col = j + 3;
+                    break;
+                }
+
+                // test diagonale bas
+                if (grid.get(i).get(j + 3).equals(symbol) && grid.get(i + 1).get(j + 2).equals(symbol)
+                        && grid.get(i + 2).get(j + 1).equals(symbol) && grid.get(i + 3).get(j).equals(" ")) {
+                    System.out.println(j + " diag bas");
+                    jouer = true;
+                    addJeton("⚪️", j + 3);
+                    col = j + 3;
+                    break;
+                }
+
+                // test diago inversé haut
+                if (grid.get(i + 3).get(j).equals(symbol) && grid.get(i + 2).get(j + 1).equals(symbol)
+                        && grid.get(i + 1).get(j + 2).equals(symbol) && grid.get(i).get(j + 3).equals(" ")) {
+                    System.out.println(j + 3 + " diag inversé haut");
+                    jouer = true;
+                    addJeton("⚪️", j + 3);
+                    col = j + 3;
+                    break;
+                }
+
+                // test diago inversé bas
+                if (grid.get(i + 3).get(j + 3).equals(symbol) && grid.get(i + 2).get(j + 2).equals(symbol)
+                        && grid.get(i + 1).get(j + 1).equals(symbol) && grid.get(i).get(j).equals(" ")) {
+                    System.out.println(j - 3 + " diag inversé bas");
+                    jouer = true;
+                    addJeton("⚪️", j + 3);
+                    col = j+3;
+                    break;
+                }
+            }
+        }
+
+        if (!jouer) {
+            System.out.println("pif");
+            addJeton("⚪️", IA1());
+            col = IA1();
+        }
+
+        return col;
+    }
 }
