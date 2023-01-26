@@ -10,7 +10,6 @@ public class Jeu {
     private Scanner _scan = new Scanner(System.in);
     private int rows = 6;
     private int columns = 7;
-    private IA ia = new IA();
 
 
     public void Jouer(int nombreJoueur, ArrayList<String> name, ArrayList<String> couleur) {

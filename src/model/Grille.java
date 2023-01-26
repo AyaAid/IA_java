@@ -1,12 +1,15 @@
 package model;
 import java.util.*;
+import java.util.Random;
+
 public class Grille {
     private static int rows = 6;
-    private static int columns = 7; // Ces lignes déclarent des variables d'instance qui peuvent être utilisées pour stocker le nombre de lignes et de colonnes dans la grille.
+    private static int columns = 7;
+    private Random rand = new Random(); // Ces lignes déclarent des variables d'instance qui peuvent être utilisées pour stocker le nombre de lignes et de colonnes dans la grille.
 
     private ArrayList<ArrayList<String>> grid = new ArrayList<ArrayList<String>>(); // Cette ligne déclare une variable d'instance qui peut être utilisée pour stocker les données de la grille.
 
-    private IA ia = new IA(); // Cette ligne déclare une variable d'instance qui peut être utilisée pour stocker une instance de la classe IA. Cette classe est utilisée pour implémenter l'intelligence artificielle.
+
 
 
     public Grille() {
@@ -125,6 +128,14 @@ public class Grille {
         return false;
     } // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si un joueur a gagné.
 
+    public int IA1(){
+        int column = rand.nextInt(6 - 0) + 0;
+        while(colonnePleine(column)){
+            column = rand.nextInt(6 - 0) + 0;
+        }
+        return column;
+    }
+
 
     public int IA2(String symbol) {
         int col = 0;
@@ -206,8 +217,8 @@ public class Grille {
 
         if (!jouer) {
             System.out.println("pif");
-            addJeton("⚪️", ia.jouerTour(new Grille(), 1));
-            col = ia.jouerTour(new Grille(), 1);
+            addJeton("⚪️", IA1());
+            col = IA1();
         }
 
         return col;
