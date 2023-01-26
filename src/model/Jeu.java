@@ -10,8 +10,6 @@ public class Jeu {
     private Joueur joueur2;
     private int move;
     Joueur currentPlayer;
-    private int rows = 6;
-    private int columns = 7;
     private IA ia = new IA();
 
     private Scanner _scan = new Scanner(System.in);
