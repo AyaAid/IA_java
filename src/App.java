@@ -29,6 +29,12 @@ public class App {
                     System.out.println("Choisir une couleur pour le joueur: ");
                     menu.afficherMenu("couleur");
                     String coul = _scan.nextLine();
+                    while(coul != "1" || coul != "2"){
+                        System.out.println("La couleur n'est pas valide");
+                        System.out.println("Choisir une couleur pour le joueur: ");
+                        menu.afficherMenu("couleur");
+                        coul = _scan.nextLine();
+                    }
                     menu.setCouleur(coul);
 
                     System.out.println("Choisir un niveau de difficulté: ");
@@ -56,6 +62,12 @@ public class App {
                     System.out.println("Choisir une couleur pour le joueur 1:\n");
                     menu.afficherMenu("couleur");
                     String coul0 = _scan.nextLine();
+                    while(coul0 != "1" || coul0 != "2"){
+                        System.out.println("La couleur n'est pas valide");
+                        System.out.println("Choisir une couleur pour le joueur 1:\n");
+                        menu.afficherMenu("couleur");
+                        coul0 = _scan.nextLine();
+                    }
                     menu.setCouleur(coul0);
                     if (Objects.equals(menu.getCouleur().get(0), "🔴")) {
                         menu.setCouleur("2");
