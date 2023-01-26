@@ -29,7 +29,7 @@ public class App {
                     System.out.println("Choisir une couleur pour le joueur: ");
                     menu.afficherMenu("couleur");
                     String coul = _scan.nextLine();
-                    while(coul != "1" || coul != "2"){
+                    if(!coul.equals("1") && !coul.equals("2")){
                         System.out.println("La couleur n'est pas valide");
                         System.out.println("Choisir une couleur pour le joueur: ");
                         menu.afficherMenu("couleur");
@@ -62,7 +62,7 @@ public class App {
                     System.out.println("Choisir une couleur pour le joueur 1:\n");
                     menu.afficherMenu("couleur");
                     String coul0 = _scan.nextLine();
-                    while(coul0 != "1" || coul0 != "2"){
+                    if(!coul0.equals("1") && !coul0.equals("2")){
                         System.out.println("La couleur n'est pas valide");
                         System.out.println("Choisir une couleur pour le joueur 1:\n");
                         menu.afficherMenu("couleur");
