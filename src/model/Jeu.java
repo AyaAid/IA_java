@@ -1,18 +1,16 @@
 package model;
-
 import java.util.ArrayList;
 import java.util.Scanner;
-//on clique sur le menu pour sélectionner le mode
-
 public class Jeu {
     private Grille grid = new Grille();
     Joueur joueur1;
     private Joueur joueur2;
     private int move;
     Joueur currentPlayer;
+    private int rows = 6;
+    private int columns = 7;
     private IA ia = new IA();
 
-    private Scanner _scan = new Scanner(System.in);
 
     public void Jouer(int nombreJoueur, ArrayList<String> name, ArrayList<String> couleur) {
         grid = new Grille();
@@ -24,11 +22,14 @@ public class Jeu {
             joueur2 = new Joueur("IA", (String) couleur.get(1));
         }
         currentPlayer = joueur1;
-    }
+    } //Cette ligne définit une méthode qui prend en entrée le nombre de joueurs, leur nom et leur couleur et initialise les variables (joueur1 et joueur2).
+
 
     public void start_game() {
+
         grid.afficherGrille();
-        System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
+        System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer"); //Cette ligne définit une méthode qui change de joueur à chaque tour.
+
         System.out.println(currentPlayer.getCouleur());
         System.out.println("Choisissez une colonne");
         int column = _scan.nextInt();
@@ -77,6 +78,7 @@ public class Jeu {
     }
 
     public void jouerIA() {
+
         grid.afficherGrille();
         System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
         System.out.println(currentPlayer.getCouleur());

@@ -5,8 +5,8 @@ public class Joueur {
     private String joueur;
     private String couleur;
 
+    public Joueur(String joueur, String couleur) { // Cette ligne déclare un constructeur qui prend en paramètre le nom du joueur et la couleur et les stocke dans les variables déclarées précédemment.
 
-    public Joueur(String joueur, String couleur) {
         this.joueur = joueur;
         this.couleur = couleur;
     }

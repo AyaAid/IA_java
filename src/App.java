@@ -1,21 +1,25 @@
 import java.util.Objects;
-import java.util.Scanner;
-
+import java.util.Scanner; 
 import model.Classement;
-
 import model.Jeu;
+
 import model.Menu;
 
 public class App {
-    private static Scanner _scan = new Scanner(System.in);
 
+    private static Scanner _scan = new Scanner(System.in);
     public static void main(String[] args) throws Exception {
 
-        Menu menu = new Menu();
-        Jeu jeu = new Jeu();
-        while (true) {
-            menu.afficherMenu("principale");
-            switch (_scan.nextLine()) {
+        Menu menu = new Menu(); // Cette ligne déclare un objet Menu qui sera utilisé pour afficher les menus et récupérer les entrées de l'utilisateur. 
+
+        Jeu jeu = new Jeu(); // Cette ligne déclare un objet Jeu qui sera utilisé pour initialiser le jeu et le lancer. 
+
+        while (true) { // Cette ligne définit une boucle infinie qui s'exécutera tant que l'utilisateur ne quitte pas le jeu. 
+
+            menu.afficherMenu("principale"); // Cette ligne appelle la méthode afficherMenu() sur l'objet Menu pour afficher le menu principal. 
+
+            switch (_scan.nextLine()) { // Cette ligne vérifie quelle option a été choisie par l'utilisateur et exécute le code associé. 
+
                 case "1":
                     System.out.println("\nVous avez choisi de jouer en solo\n");
                     menu.setNbjoueur(1);
@@ -28,6 +32,8 @@ public class App {
                     menu.setCouleur(coul);
                     jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur());
                     jeu.jouerIA();
+                    // Cette ligne appelle la méthode Jouer() sur l'objet Jeu pour lancer le jeu. 
+
                     // menu.afficherMenu("niveau");
                     // String symb = _scan.nextLine();
                     // menu.setName(symb);
@@ -51,13 +57,15 @@ public class App {
                         menu.setCouleur("1");
                     }
                     jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur());
-                    jeu.start_game();
+                    jeu.start_game(); // Cette ligne appelle la méthode start_game() sur l'objet Jeu pour lancer le jeu à deux joueurs. 
+
                     break;
                 case "3":
                     System.out.println("Vous avez choisi de voir le classement");
                     Classement score = new Classement("IA_java/src/classement.csv");
                     score = new Classement("IA_java/src/classement.csv");
-                    score.afficherClassement();
+                    score.afficherClassement(); // Cette ligne instancie un objet Classement qui peut être utilisé pour afficher le classement des joueurs. 
+
                     // Classement score = new Classement("IA_java/src/classement.csv");
                     // Classement.afficherClassement();
                     return;
@@ -69,7 +77,7 @@ public class App {
                     //break;
                 default:
                     System.out.println("Veuillez choisir une option valide\n");
-                    break;
+                    break; // Cette ligne termine le programme.
             }
         }
     }
