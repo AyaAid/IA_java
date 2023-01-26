@@ -1,26 +1,15 @@
 package model;
-// Cette ligne déclare le package auquel le fichier appartient.
 
 
 import model.*;
-// Cette ligne importe toutes les classes du package spécifié.
-
 import java.util.*;
-// Cette ligne importe le package java.util, qui contient des classes utiles pour stocker des collections de données.
-
-
 public class Grille {
-    // Cette ligne déclare une classe publique qui s'appelle Grille.
-
     private static int rows = 6;
-    private static int columns = 7;
-    // Ces lignes déclarent des variables d'instance qui peuvent être utilisées pour stocker le nombre de lignes et de colonnes dans la grille.
+    private static int columns = 7; // Ces lignes déclarent des variables d'instance qui peuvent être utilisées pour stocker le nombre de lignes et de colonnes dans la grille.
 
-    private ArrayList<ArrayList<String>> grid = new ArrayList<ArrayList<String>>();
-    // Cette ligne déclare une variable d'instance qui peut être utilisée pour stocker les données de la grille.
+    private ArrayList<ArrayList<String>> grid = new ArrayList<ArrayList<String>>(); // Cette ligne déclare une variable d'instance qui peut être utilisée pour stocker les données de la grille.
 
-    private IA ia = new IA();
-    // Cette ligne déclare une variable d'instance qui peut être utilisée pour stocker une instance de la classe IA. Cette classe est utilisée pour implémenter l'intelligence artificielle.
+    private IA ia = new IA(); // Cette ligne déclare une variable d'instance qui peut être utilisée pour stocker une instance de la classe IA. Cette classe est utilisée pour implémenter l'intelligence artificielle.
 
 
     public Grille() {
@@ -30,14 +19,12 @@ public class Grille {
                 grid.get(i).add(" ");
             }
         }
-    }
-    // Cette ligne déclare un constructeur pour la classe Grille. Ce constructeur est utilisé pour initialiser une nouvelle grille et la remplir avec des espaces vides.
+    } // Cette ligne déclare un constructeur pour la classe Grille. Ce constructeur est utilisé pour initialiser une nouvelle grille et la remplir avec des espaces vides.
 
 
     public ArrayList<ArrayList<String>> getGrid() {
         return grid;
-    }
-    // Cette ligne déclare une méthode publique qui peut être utilisée pour récupérer les données de la grille.
+    } // Cette ligne déclare une méthode publique qui peut être utilisée pour récupérer les données de la grille.
 
 
     public void afficherGrille() {
@@ -59,8 +46,7 @@ public class Grille {
             System.out.println();
         }
         System.out.println();
-    }
-    // Cette ligne déclare une méthode publique qui peut être utilisée pour afficher la grille dans la console.
+    } // Cette ligne déclare une méthode publique qui peut être utilisée pour afficher la grille dans la console.
 
 
     public void addJeton(String symbole, int column) {
@@ -74,8 +60,7 @@ public class Grille {
         } else {
             System.out.println("Vous ne pouvez pas sélectionner cette colonne !");
         }
-    }
-    // Cette ligne déclare une méthode publique qui peut être utilisée pour ajouter un jeton à la grille.
+    } // Cette ligne déclare une méthode publique qui peut être utilisée pour ajouter un jeton à la grille.
 
 
     public boolean colonnePleine(int column) {
@@ -83,8 +68,7 @@ public class Grille {
             return true;
         }
         return false;
-    }
-    // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si une colonne est pleine.
+    } // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si une colonne est pleine.
 
 
     public void reinitialiserGrille() {
@@ -93,8 +77,7 @@ public class Grille {
                 grid.get(i).set(j, " ");
             }
         }
-    }
-    // Cette ligne déclare une méthode publique qui peut être utilisée pour réinitialiser la grille en remplissant toutes les cases avec des espaces vides.
+    } // Cette ligne déclare une méthode publique qui peut être utilisée pour réinitialiser la grille en remplissant toutes les cases avec des espaces vides.
 
 
     public boolean grillePleine() {
@@ -106,8 +89,7 @@ public class Grille {
             }
         }
         return true;
-    }
-    // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si la grille est pleine.
+    } // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si la grille est pleine.
 
 
     public boolean gagner() {
@@ -144,8 +126,7 @@ public class Grille {
             }
         }
         return false;
-    }
-    // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si un joueur a gagné.
+    } // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si un joueur a gagné.
 
 
     public int IA2(String symbol) {
@@ -160,8 +141,7 @@ public class Grille {
                     return j+3;
                 }
             }
-        }
-        // Cette ligne déclare une méthode publique qui peut être utilisée pour implémenter l'intelligence artificielle. Elle effectue différents tests pour vérifier si un joueur est sur le point de gagner, et si c'est le cas, elle joue le coup pour l'empêcher de gagner.
+        } // Cette ligne déclare une méthode publique qui peut être utilisée pour implémenter l'intelligence artificielle. Elle effectue différents tests pour vérifier si un joueur est sur le point de gagner, et si c'est le cas, elle joue le coup pour l'empêcher de gagner.
 
         // test colonne
         for(int j = 0; j < columns; j++){

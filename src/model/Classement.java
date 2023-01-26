@@ -9,43 +9,33 @@ import java.util.ArrayList;
 
 public class Classement {
 
-        // Attribut qui contient le nom du fichier CSV
     private String filename;
-    
-        // Attributs pour stocker les données d'un joueur
     private String name;
-    private int move;
+    private int move; 
+    private ArrayList<Classement> topTen = new ArrayList<Classement>(); // Attribut pour stocker les scores des 10 meilleurs joueurs
 
-        // Attribut pour stocker les scores des 10 meilleurs joueurs
-    private ArrayList<Classement> topTen = new ArrayList<Classement>();
 
-        // Constructeur pour initialiser le nom du fichier CSV
-    public Classement(String filename) {
+    public Classement(String filename) { // Constructeur pour initialiser le nom du fichier CSV
+
         this.filename = filename;
     }
-
-        // Constructeur par défaut
-    public Classement() {
+    public Classement() { // Constructeur par défaut
     }
+    public void csvToTopTen() throws IOException{ // Méthode pour lire les données d'un fichier CSV et les stocker dans topTen
 
-        // Méthode pour lire les données d'un fichier CSV et les stocker dans topTen
-    public void csvToTopTen() throws IOException{
         try (BufferedReader pw = new BufferedReader(new FileReader(this.filename))) {
             String line;
             while ((line = pw.readLine()) != null) {
                 try {
-                    // Séparer les valeurs de chaque ligne
-                    String[] valeurs = line.split(";");
+                    String[] valeurs = line.split(";"); // Séparer les valeurs de chaque ligne
 
-                    // Stocker les valeurs dans les attributs name et move
-                    String name = valeurs[0];
+                    String name = valeurs[0]; // Stocker les valeurs dans les attributs name et move
                     int move = Integer.parseInt(valeurs[1]);
                     Classement score = new Classement();
                     score.setName(name);
                     score.setMove(move);
+                    topTen.add(score); // Ajouter les données dans topTen
 
-                    // Ajouter les données dans topTen
-                    topTen.add(score);
                 } catch (NumberFormatException e) {
                     System.out.println("Erreur lors de la ligne");
                 }
@@ -55,8 +45,8 @@ public class Classement {
         }
     }
 
-    // Méthode pour écrire les données de topTen dans un fichier CSV
-    public void topTenToCsv() {
+    public void topTenToCsv() { // Méthode pour écrire les données de topTen dans un fichier CSV
+
 
         try (BufferedWriter pw = new BufferedWriter(new FileWriter(this.filename))) {
             for (Classement score : topTen) {
@@ -69,13 +59,13 @@ public class Classement {
         }
     }
 
-    // Méthode pour sauvegarder les données d'un joueur dans topTen et dans le fichier CSV
-    public void saveClassement(String name, int move) {
+    public void saveClassement(String name, int move) { // Méthode pour sauvegarder les données d'un joueur dans topTen et dans le fichier CSV
+
         setName(name);
         setMove(move);
 
-        // Ajouter les données dans topTen en respectant l'ordre des scores
-        for (Classement score : topTen) {
+        for (Classement score : topTen) { // Ajouter les données dans topTen en respectant l'ordre des scores
+
             if (move < score.getMove()) {
                 int index = topTen.indexOf(score);
                 topTen.add(index, this);
@@ -92,28 +82,27 @@ public class Classement {
         topTenToCsv();
     }
 
-    // Getter pour name
-    public String getName() {
+    public String getName() { // Getter pour name
+
         return name;
     }
+    public int getMove() { // Getter pour move
 
-    // Getter pour move
-    public int getMove() {
         return move;
     }
 
-    // Setter pour name
-    public void setName(String name) {
+    public void setName(String name) { // Setter pour name
+
         this.name = name;
     }
 
-    // Setter pour move
-    public void setMove(int move) {
+    public void setMove(int move) { // Setter pour move
+
         this.move = move;
     }
 
-    // Méthode pour afficher le classement
-    public void afficherClassement() {
+    public void afficherClassement() { // Méthode pour afficher le classement
+
         for (Classement score : topTen) { 
             String scoreString = score.toString();
     
@@ -123,8 +112,8 @@ public class Classement {
         }
     }
     
-    // Méthode pour convertir un objet Classement en une chaîne de caractères
-    @Override
+    @Override // Méthode pour convertir un objet Classement en une chaîne de caractères
+
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append(this.getName());
