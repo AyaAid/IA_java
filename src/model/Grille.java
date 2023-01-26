@@ -1,6 +1,4 @@
 package model;
-
-import model.*;
 import java.util.*;
 public class Grille {
     private static int rows = 6;
@@ -140,6 +138,7 @@ public class Grille {
                     jouer = true;
                     addJeton("⚪️", j + 3);
                     col = j + 3;
+                    break;
                 }
             }
         } // Cette ligne déclare une méthode publique qui peut être utilisée pour implémenter l'intelligence artificielle. Elle effectue différents tests pour vérifier si un joueur est sur le point de gagner, et si c'est le cas, elle joue le coup pour l'empêcher de gagner.
@@ -153,6 +152,7 @@ public class Grille {
                     jouer = true;
                     addJeton("⚪️", j);
                     col = j;
+                    break;
 
                 }
             }
@@ -166,17 +166,20 @@ public class Grille {
                         && grid.get(i + 2).get(j + 2).equals(symbol)
                         && grid.get(i + 3).get(j + 3).equals(" ")) {
                     System.out.println(j + 3 + " diag haut");
+                    jouer = true;
                     addJeton("⚪️", j + 3);
                     col = j + 3;
+                    break;
                 }
 
                 // test diagonale bas
                 if (grid.get(i).get(j + 3).equals(symbol) && grid.get(i + 1).get(j + 2).equals(symbol)
                         && grid.get(i + 2).get(j + 1).equals(symbol) && grid.get(i + 3).get(j).equals(" ")) {
                     System.out.println(j + " diag bas");
-                    // jouer = true;
+                    jouer = true;
                     addJeton("⚪️", j + 3);
                     col = j + 3;
+                    break;
                 }
 
                 // test diago inversé haut
@@ -186,6 +189,7 @@ public class Grille {
                     jouer = true;
                     addJeton("⚪️", j + 3);
                     col = j + 3;
+                    break;
                 }
 
                 // test diago inversé bas
@@ -195,6 +199,7 @@ public class Grille {
                     jouer = true;
                     addJeton("⚪️", j + 3);
                     col = j+3;
+                    break;
                 }
             }
         }
