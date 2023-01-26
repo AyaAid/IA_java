@@ -150,5 +150,5 @@ public class Grille {
         System.out.println("pif");
         addJeton("⚪️", ia.jouerTour(new Grille(), 1));
         }
-}
+    }
 }

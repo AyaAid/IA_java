@@ -30,3 +30,23 @@ public int getColumn() {
     return column;
 }
 ```
+
+
+
+
+
+La classe Jeton représente un jeton dans un jeu, qui a une couleur, une ligne et une colonne.
+ 
+Attributs : 
+ - color (String) : la couleur du jeton
+ - row (int) : le numéro de la ligne du jeton
+ - column (int) : le numéro de la colonne du jeton
+
+ Constructeur : 
+  Jeton(String color, int row, int column)
+   - Prend en paramètres la couleur, la ligne et la colonne du jeton, et les initialise. 
+ 
+ Méthodes : 
+ getColor() : retourne la couleur du jeton
+ getRow() : retourne la ligne du jeton
+ getColumn() : retourne la colonne du jeton

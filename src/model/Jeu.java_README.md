@@ -44,3 +44,7 @@ Choisissez le mode de jeu :
 2
 Vous avez choisi le mode multijoueur
 ```
+
+
+
+Ce code est une classe Java qui définit une classe Jeu. La classe Jeu est utilisée pour créer un jeu d'alignement 4. Il initialise le jeu avec des paramètres spécifiés tels que le nombre de joueurs, leurs noms et couleurs. La méthode start_game() démarre le jeu. Elle affiche la grille de jeu et demande au joueur de choisir une colonne, et elle vérifie si le joueur a gagné. Si le joueur n'a pas gagné, elle switchPlayer et demande au joueur suivant de choisir une colonne. La méthode jouerIA() est similaire à la méthode start_game(), mais elle contient une fonctionnalité supplémentaire pour l'IA qui lui permet de jouer. La méthode switchPlayer() est utilisée pour changer de joueur. Elle vérifie si le joueur actuel est le joueur1 et change le joueur actuel si ce n'est pas le cas. La méthode getCurrentPlayer() est utilisée pour obtenir le joueur actuel. La méthode getMove() est utilisée pour obtenir le nombre de mouvements effectués. La méthode Jouer() initialise le jeu avec des paramètres spécifiés. Il initialise le jeu avec des paramètres spécifiés tels que le nombre de joueurs, leurs noms et couleurs. La méthode saveClassement() est utilisée pour sauvegarder le nom du joueur actuel et le nombre de mouvements effectués dans un fichier CSV.

@@ -32,3 +32,30 @@ public static void writeRanking(String fileName, String[] ranking) throws IOExce
     pw.close();
 }
 ```
+
+
+Ce code fait partie d'un projet de jeu de Puissance 4. Il représente une classe nommée Classement qui sert à stocker et gérer les meilleurs scores enregistrés dans le jeu.
+
+Constructeur Classement(String filename):
+Ce constructeur prend un nom de fichier en paramètre et l'utilise pour stocker et récupérer le classement des meilleurs scores.
+
+Constructeur Classement():
+Ce constructeur est le constructeur par défaut et n'accepte aucun paramètre.
+
+Méthode csvToTopTen():
+Cette méthode lit le fichier passé en paramètre lors de la création de l'instance de la classe et stocke les meilleurs scores lus dans une liste.
+
+Méthode topTenToCsv():
+Cette méthode prend la liste des scores et les enregistre dans le fichier passé en paramètre lors de la création de l'instance de la classe.
+
+Méthode saveClassement(String name, int move):
+Cette méthode prend le nom et le nombre de mouvements du joueur et les enregistre dans une liste. Elle vérifie le nombre de mouvements et ajoute le nouvel enregistrement à la liste en fonction de sa position. Elle affiche ensuite le classement et enregistre le tout dans le fichier.
+
+Getter et setter:
+Il y a deux getter et deux setter pour récupérer et enregistrer le nom et le nombre de mouvements du joueur.
+
+Méthode afficherClassement():
+Cette méthode affiche tous les scores enregistrés dans la liste.
+
+Méthode toString():
+Cette méthode renvoie le nom et le nombre de mouvements de l'instance de la classe sous forme de chaîne de caractères.
