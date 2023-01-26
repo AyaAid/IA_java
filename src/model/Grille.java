@@ -249,6 +249,8 @@ public class Grille {
                         && grid.get(row).get(col+3).equals(symbol)){
                     System.out.println("ligne good");
                     addJeton("⚪️", col+2);
+                    jouer = true;
+                    break;
                
                 }
             }
@@ -256,11 +258,11 @@ public class Grille {
 
         // test colonne
         for(int col = 0; col < columns; col++){
-            for(int row = 5; row >= 0; row--){
+            for(int row = 0; row < rows; row++){
                 if(grid.get(row).get(col).equals(symbol) 
-                        && grid.get(row-1).get(col).equals(symbol)
-                        && grid.get(row-2).get(col).equals(symbol) 
-                        && grid.get(row-3).get(col).equals(" ")){
+                        && grid.get(row+1).get(col).equals(symbol)
+                        && grid.get(row+2).get(col).equals(symbol) 
+                        && grid.get(row+3).get(col).equals(" ")){
                     System.out.println(col + "colonne");
                     jouer = true;
                     addJeton("⚪️", col);
@@ -294,7 +296,7 @@ public class Grille {
                 }
 
                 // test diago inversé haut
-                if(row + 3 < grid.size() && col - 3 >= 0){
+                
                 if(grid.get(row).get(col).equals(symbol) 
                         && grid.get(row+1).get(col-1).equals(symbol)
                         && grid.get(row+2).get(col-2).equals(symbol) 
@@ -303,10 +305,10 @@ public class Grille {
                
                     addJeton("⚪️", col-3);
                     
-                }}
+                }
 
                 // test diago inversé bas
-                if(row + 3 < grid.size() && col - 3 >= 0){
+                
                 if(grid.get(row).get(col-3).equals(symbol) 
                         && grid.get(row+1).get(col-2).equals(symbol)
                         && grid.get(row+2).get(col-1).equals(symbol) 
@@ -315,7 +317,7 @@ public class Grille {
                 
                     addJeton("⚪️", col-3);
                     
-                }
+                
             }
         }
         if(!jouer){
