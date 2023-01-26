@@ -118,7 +118,7 @@ public class Grille {
         return false;
     }
 
-    public void IA2(String symbol) {
+    public int IA2(String symbol) {
         boolean jouer = false;
         // test ligne
         for (int i = 0; i < rows; i++) {
@@ -127,7 +127,7 @@ public class Grille {
                     System.out.println(j + 3 + "ligne");
                     jouer = true;
                     addJeton("⚪️", j + 3);
-                    break;
+                    return j+3;
                 }
             }
         }
@@ -139,16 +139,36 @@ public class Grille {
                     System.out.println(j + "colonne");
                     jouer = true;
                     addJeton("⚪️", j);
-                    break;
+                    return j;
                 }
             }
         }
 
         // test diagonale 
+        for (int i = 0; i < rows - 3; i++) {
+            for (int j = 0; j < columns - 3; j++) {
+                if (grid.get(i).get(j).equals(symbol) && grid.get(i+1).get(j+1).equals(symbol) && grid.get(i+2).get(j+2).equals(symbol) && grid.get(i+3).get(j+3).equals(" ")) {
+                    System.out.println(j + 3 + "diagonale");
+                    jouer = true;
+                    addJeton("⚪️", j + 3);
+                    break;
+                } else if (grid.get(i).get(j).equals(symbol) && grid.get(i+1).get(j-1).equals(symbol) && grid.get(i+2).get(j-2).equals(symbol) && grid.get(i+3).get(j-3).equals(" ")) {
+                    System.out.println(j - 3 + "diagonale");
+                    jouer = true;
+                    addJeton("⚪️", j - 3);
+                    break;
+                }
+            }
+        }
 
         if(!jouer){
         System.out.println("pif");
         addJeton("⚪️", ia.jouerTour(new Grille(), 1));
+        return ia.jouerTour(new Grille(), 1);
         }
-}
+        return 0;
+    }
+    public int IA3(String symbol) {
+
+    }
 }
