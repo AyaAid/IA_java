@@ -26,3 +26,17 @@ Example:
 ```
 String playerColor = player.getCouleur();
 ```
+
+
+
+  
+  La classe Joueur définit les attributs et les méthodes pour un joueur. 
+  
+ Attributs : 
+      - String joueur : le nom du joueur
+      - String couleur : la couleur associée au joueur
+ 
+ Méthodes : 
+      - Joueur (String joueur, String couleur) : constructeur qui initialise les attributs
+      - getJoueur () : renvoie le nom du joueur
+      - getCouleur () : renvoie la couleur associée au joueur

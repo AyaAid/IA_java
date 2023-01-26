@@ -166,9 +166,5 @@ public class Grille {
         addJeton("⚪️", ia.jouerTour(new Grille(), 1));
         return ia.jouerTour(new Grille(), 1);
         }
-        return 0;
-    }
-    public int IA3(String symbol) {
-
-    }
+}
 }
