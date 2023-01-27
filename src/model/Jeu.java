@@ -65,7 +65,6 @@ public class Jeu {
         System.out.println("Le joueur " + currentPlayer.getJoueur() + " a gagné");
         classement.ajouterScore(currentPlayer.getJoueur(), move);
         grid.reinitialiserGrille();
-        
         // Classement score = new Classement("IA_java/src/classement.csv");
         // try {
         // score.saveScore(currentPlayer.getJoueur(), move);
@@ -103,7 +102,7 @@ public class Jeu {
                 break;
             }
             if (currentPlayer.getCouleur().equals("⚪️")) {
-                grid.IA2(joueur1.getCouleur());
+                grid.IA3(joueur1.getCouleur());
             } else {
                 grid.addJeton(currentPlayer.getCouleur(), column);
             }

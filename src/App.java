@@ -58,7 +58,7 @@ public class App {
                     System.out.println("Choisir une couleur pour le joueur 1:\n");
                     menu.afficherMenu("couleur");
                     String coul0 = _scan.nextLine();
-                    if(!coul0.equals("1") && !coul0.equals("2")){
+                    while(!coul0.equals("1") && !coul0.equals("2")){
                         System.out.println("La couleur n'est pas valide");
                         System.out.println("Choisir une couleur pour le joueur 1:\n");
                         menu.afficherMenu("couleur");
