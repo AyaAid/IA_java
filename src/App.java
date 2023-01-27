@@ -1,6 +1,7 @@
 import java.util.Objects;
 import java.util.Scanner; 
 import model.Classement;
+import model.Jeton;
 import model.Jeu;
 
 import model.Menu;
@@ -25,6 +26,30 @@ public class App {
                 case "1":
                     System.out.println("\nVous avez choisi de jouer en solo\n");
                     menu.setNbjoueur(1);
+                    menu.afficherMenu("niveau");
+                    switch (_scan.nextLine()){
+                        case "1":
+                            Jeu.jetonIA = 1;
+                            break;
+                        case "2":
+                            Jeu.jetonIA = 2;
+                            break;
+                        case "3":
+                            Jeu.jetonIA = 3;
+                            break;
+                        case "4":
+                            Jeu.jetonIA = 4;
+                            break;
+                        case "q":
+                            System.out.println("Vous avez choisi de quitter le jeu\n");
+                            return;
+                            //Classement score = new Classement();
+                            //score.saveClassement("Robert", 10);
+                            //break;
+                        default:
+                            System.out.println("Veuillez choisir une option valide\n");
+                            break; // Cette ligne termine le programme.
+                    }
                     System.out.println("Veuillez entrer le nom du joueur :");
                     String nom = _scan.nextLine();
                     menu.setName(nom);
