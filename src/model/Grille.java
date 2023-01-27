@@ -14,6 +14,7 @@ public class Grille {
                                                                                     // d'instance qui peut être utilisée
                                                                                     // pour stocker les données de la
                                                                                     // grille.
+    public Object jetonIA;
 
     public Grille() {
         for (int i = 0; i < rows; i++) {
