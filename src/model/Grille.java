@@ -295,8 +295,8 @@ public class Grille {
      * @return
      * La fonction "IA3()" permet à l'ordinateur de jouer un coup intelligent.
      */
-    public void IA3(String symbol){
-        
+    public int IA3(String symbol){
+        int col = 0;
         boolean jouer = false;
 
         // test ligne
@@ -500,8 +500,8 @@ public class Grille {
             }
         }
 
-        for(int row = 0; row < rows - 3; row++){
-            for(int col = 0; col < columns - 3; col++){
+        for(int i = 0; i < rows - 3; i++){
+            for(int j = 0; j < columns - 3; j++){
                 // test diagonale haut
                 if (grid.get(i).get(j).equals(symbol)
                         && grid.get(i + 1).get(j + 1).equals(symbol)
@@ -556,9 +556,10 @@ public class Grille {
             System.out.println(symbol2);
             IA3(symbol2);
         }
+        return col;
     }
 }
-}
+
     // public int IA3(String symbol) {
     //     int col = 0;
     //     boolean jouer = false;
