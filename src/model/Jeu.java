@@ -125,8 +125,13 @@ public class Jeu {
                 System.out.println("C'est au tour de " + currentPlayer.getJoueur() + " de jouer");
                 System.out.println(currentPlayer.getCouleur());
                 if (currentPlayer == joueur1) {
-                    System.out.println("Choisissez une colonne");
-                    column = _scan.nextInt();
+                        System.out.println("Choisissez une colonne");
+                        column = _scan.nextInt();
+                        while(grid.colonnePleine(column)){
+                            System.out.println("La colonne n'existe pas");
+                            System.out.println("Choisissez une colonne");
+                            column = _scan.nextInt();
+                        }
                 }
 
             }

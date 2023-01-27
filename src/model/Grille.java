@@ -291,7 +291,7 @@ public class Grille {
 
         // test colonne
         for (int j = 0; j < columns; j++) {
-            for (int i = 5; i >= 0; i--) {
+            for (int i = 5; i > rows-3; i--) {
                 if (grid.get(i).get(j).equals(symbol)
                         && grid.get(i - 1).get(j).equals(symbol)
                         && grid.get(i - 2).get(j).equals(symbol)
