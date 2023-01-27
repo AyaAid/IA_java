@@ -11,7 +11,6 @@ public class Joueur {
     private String couleur;
 
     /**
-     * @author : Aya et Romain
      * @param joueur
      * @param couleur
      * @return 
@@ -24,7 +23,6 @@ public class Joueur {
     }
 
     /**
-     * @author : Aya et Romain
      * @return
      * Cette méthode permet de récupérer le nom du joueur.
      */
@@ -33,7 +31,6 @@ public class Joueur {
     }
 
     /**
-     * @author : Aya et Romain
      * @return
      * Cette méthode permet de récupérer la couleur du joueur.
      */

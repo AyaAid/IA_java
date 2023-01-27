@@ -422,6 +422,12 @@ public class Grille {
 
     /////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     * @param symbol
+     * @param symbol2
+     * @return
+     * La fonction IA4 est une IA qui joue en fonction de la position des jetons de l'adversaire
+     */
     public int IA4(String symbol, String symbol2) {
         int col = 0;
         boolean jouer = false;

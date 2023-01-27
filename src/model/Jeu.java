@@ -13,7 +13,7 @@ public class Jeu {
     private Scanner _scan = new Scanner(System.in);
     private int rows = 6;
     private int columns = 7;
-
+    public static int jetonIA;
 
     /**
      * @author : Aya
@@ -100,7 +100,6 @@ public class Jeu {
     }
 
     /**
-     * @author : Aya
      * @return
      * Cette méthode permet de retourner le joueur courant
      */
@@ -109,7 +108,6 @@ public class Jeu {
     }
 
     /**
-     * @author : Aya
      * @return
      * Cette méthode permet de retourner le nombre de coups joués
      */
