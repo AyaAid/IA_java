@@ -7,12 +7,22 @@ import java.util.List;
 
 public class Menu {
 
+    /**
+     * @return
+     * Cette classe permet de définir le nombre de joueurs et leurs couleurs.
+     */
     private int nbjoueur;
     static List<String> couleur = new ArrayList<String>(); // Cette ligne déclare une liste statique de chaînes de caractères nommée couleur.
 
+    /**
+     *@return
+     *Cette classe permet de définir le nombre de joueurs et leurs couleurs.
+     */
     private ArrayList<String> name = new ArrayList<>(); // Cette ligne déclare une variable privée de type ArrayList nommée name.
 
+
     public static String coul; // Cette ligne déclare une variable publique statique de type chaîne de caractères nommée coul.
+
 
 
     public Menu() {
@@ -21,6 +31,10 @@ public class Menu {
         couleur = getCouleur(); // Cette ligne assigne la valeur de retour de la méthode getCouleur à la variable couleur.
     }
 
+    /**
+     * @return
+     * Cette méthode permet de récupérer le nom du joueur.
+     */
     public ArrayList<String> getName() { // Cette ligne déclare une méthode publique qui retourne un ArrayList de chaînes de caractères nommé name.
         return name;
     }
@@ -29,18 +43,37 @@ public class Menu {
         name.add(nom);
     }
 
+    /**
+     * @return
+     * Cette méthode permet de récupérer le nombre de joueurs.
+     */
     public int getNbjoueur() { // Cette ligne déclare une méthode publique qui retourne un entier nommé nbjoueur.
         return nbjoueur;
     }
 
+    /**
+     * @param nbjoueur
+     * @return
+     * Cette méthode permet de définir le nombre de joueurs.
+     */
     public void setNbjoueur(int nbjoueur) { // Cette ligne déclare une méthode publique qui permet d'ajouter un nombre de joueur à la variable nbjoueur.
         this.nbjoueur = nbjoueur;
     }
 
+    /**
+     * @return
+     * Cette méthode permet de récupérer la couleur du joueur.
+     */
     public ArrayList<String> getCouleur() { // Cette ligne déclare une méthode publique qui retourne une liste d'ArrayList de chaînes de caractères nommée couleur.
         return (ArrayList<String>) couleur;
     } 
 
+    /**
+     * @author : Aya
+     * @param coul
+     * @return
+     * Cette méthode permet de définir la couleur du joueur.
+     */
     public void setCouleur(String coul) { // Cette ligne déclare une méthode publique qui permet d'ajouter une couleur à la liste couleur.
         if(coul.equals("1")){
             couleur.add("🔴");
@@ -51,6 +84,12 @@ public class Menu {
     }
 
 
+    /**
+     * @author : Romain et Maël
+     * @param choix
+     * @return
+     * Cette méthode permet d'afficher un menu à l'écran en fonction du paramètre choix.
+     */
     public void afficherMenu(String choix) { // Cette ligne déclare une méthode publique qui permet d'afficher un menu à l'écran en fonction du paramètre choix.
 
         ArrayList<String> menus = new ArrayList<>(); // Cette ligne crée un objet ArrayList qui permet de stocker des chaînes de caractères pour l'affichage du menu.

@@ -10,6 +10,13 @@ public class App {
 
     private static Scanner _scan = new Scanner(System.in);
     
+    /**
+     * @autor : everyone
+     * @param args
+     * @throws Exception
+     * @return
+     * Cette méthode permet de lancer le jeu
+     */
     public static void main(String[] args) throws Exception {
         Classement classement = new Classement();
 

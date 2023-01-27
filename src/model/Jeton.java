@@ -1,6 +1,5 @@
 package model;
 
-
 public class Jeton {
     private String color;
     private int row;
@@ -12,6 +11,13 @@ public class Jeton {
         this.column = column; // Cette ligne affecte à la variable membre column la valeur de l'argument column passé au constructeur.
     }
 
+    /**
+     * @author : Aya
+     * @return
+     * Elles permettent de récupérer la valeur 
+     * de ces propriétés depuis d'autres parties 
+     * de la classe ou depuis des classes qui ont une instance de cette classe.
+     */
     public String getColor() { 
         return color;
     }

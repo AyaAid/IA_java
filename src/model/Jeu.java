@@ -15,6 +15,13 @@ public class Jeu {
     private int columns = 7;
 
 
+    /**
+     * @author : Aya
+     * @param nombreJoueur
+     * @param name
+     * @param couleur
+     * Cette méthode permet de jouer au puissance 4
+     */
     public void Jouer(int nombreJoueur, ArrayList<String> name, ArrayList<String> couleur) {
         grid = new Grille();
         joueur1 = new Joueur((String) name.get(name.size()-1), (String) couleur.get(couleur.size()-1));
@@ -27,6 +34,11 @@ public class Jeu {
     } //Cette ligne définit une méthode qui prend en entrée le nombre de joueurs, leur nom et leur couleur et initialise les variables (joueur1 et joueur2).
 
 
+    /**
+     * @author : Aya
+     * @return
+     * Cette méthode permet de changer de joueur à chaque tour
+     */
     public void start_game() {
 
         grid.afficherGrille();
@@ -74,6 +86,11 @@ public class Jeu {
         // }
     }
 
+    /**
+     * @author : Aya
+     * @return
+     * Cette méthode permet de changer de joueur à chaque tour
+     */
     private void switchPlayer() {
         if (currentPlayer == joueur1) {
             currentPlayer = joueur2;
@@ -82,14 +99,29 @@ public class Jeu {
         }
     }
 
+    /**
+     * @author : Aya
+     * @return
+     * Cette méthode permet de retourner le joueur courant
+     */
     public Joueur getCurrentPlayer() {
         return currentPlayer;
     }
 
+    /**
+     * @author : Aya
+     * @return
+     * Cette méthode permet de retourner le nombre de coups joués
+     */
     public int getMove() {
         return move;
     }
 
+    /**
+     * @author : Aya
+     * @return
+     * Cette méthode permet de retourner le nombre de coups joués par le joueur 1
+     */
     public void jouerIA() {
 
         grid.afficherGrille();

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+
 public class Classement implements Comparable<Classement> {
     private static final String SEPARATEUR = ";";
     private String name;
@@ -31,6 +32,10 @@ public class Classement implements Comparable<Classement> {
         this.move = move;
     }
 
+    /**
+     * Enregistre le classement dans le fichier  "classement.csv"
+     * @throws IOException
+     */
     public void enregistrer() throws IOException {
         PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter("classement.csv", true)));
         try {
@@ -40,6 +45,12 @@ public class Classement implements Comparable<Classement> {
         }
     }
 
+    /**
+     * @author: Aya et Florent
+     * @return
+     * La fonction "lister()" retourne une ArrayList de l'objet "Classement"
+     * @throws IOException
+     */
     public ArrayList<Classement> lister() throws IOException {
         ArrayList<Classement> liste = new ArrayList<Classement>();
         try (BufferedReader pw = new BufferedReader(new FileReader("classement.csv"))) {
@@ -62,6 +73,12 @@ public class Classement implements Comparable<Classement> {
         return liste;
     }
 
+    /**
+     * @author: Aya et Florent
+     * @throws IOException
+     * @return
+     * La fonction "listerTop()" retourne les 10 meilleurs scores
+     */
     public void listerTop() throws IOException {
         ArrayList<Classement> topten = lister();
         Collections.sort(topten, compareMove);
@@ -79,6 +96,13 @@ public class Classement implements Comparable<Classement> {
         }
     }
 
+    /**
+     * @author: Aya et Florent
+     * @param joueur
+     * @param move
+     * @return 
+     * La fonction "ajouterScore()" ajoute le score du joueur dans le fichier "classement.csv"
+     */
     public void ajouterScore(String joueur, int move) {
         setName(joueur);
         setMove(move);
