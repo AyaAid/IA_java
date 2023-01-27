@@ -133,7 +133,18 @@ public class Jeu {
                 break;
             }
             if (currentPlayer.getCouleur().equals("⚪️")) {
-                grid.IA3(joueur1.getCouleur());
+                if (jetonIA == 1){
+                    grid.IA1();
+                }
+                if (jetonIA == 2){
+                    grid.IA2(joueur1.getCouleur());
+                }
+                if (jetonIA == 3){
+                    grid.IA3(joueur1.getCouleur());
+                }
+                if (jetonIA == 4){
+                    grid.IA4(joueur2.getCouleur(),joueur1.getCouleur());
+                }
             } else {
                 grid.addJeton(currentPlayer.getCouleur(), column);
             }
