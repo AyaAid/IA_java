@@ -10,7 +10,7 @@ public class App {
     private static Scanner _scan = new Scanner(System.in);
     
     /**
-     * @autor : everyone
+     * @author : everyone
      * @param args
      * @throws Exception
      * @return
