@@ -1,7 +1,6 @@
 import java.util.Objects;
 import java.util.Scanner; 
 import model.Classement;
-import model.Jeton;
 import model.Jeu;
 
 import model.Menu;
