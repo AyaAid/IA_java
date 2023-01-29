@@ -59,6 +59,21 @@ public class App {
                         System.out.println("Veuillez choisir une option valide\n");
                         break; // Cette ligne termine le programme.
                 }
+                System.out.println("Veuillez entrer le nom du joueur :");
+                String nom = _scan.nextLine();
+                menu.setName(nom);
+                System.out.println("Choisir une couleur pour le joueur: ");
+                menu.afficherMenu("couleur");
+                String coul = _scan.nextLine();
+                if (!coul.equals("1") && !coul.equals("2")) {
+                    System.out.println("La couleur n'est pas valide");
+                    System.out.println("Choisir une couleur pour le joueur: ");
+                    menu.afficherMenu("couleur");
+                    coul = _scan.nextLine();
+                }
+                menu.setCouleur(coul);
+                jeu.Jouer(menu.getNbjoueur(), menu.getName(), menu.getCouleur());
+                jeu.jouerIA();
                 break;
             }
             case "2":

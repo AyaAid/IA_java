@@ -5,16 +5,16 @@ import java.util.Random;
 public class Grille {
     private static int rows = 6;
     private static int columns = 7;
-    private Random rand = new Random(); // Ces lignes déclarent des variables d'instance qui peuvent être utilisées pour stocker le nombre de lignes et de colonnes dans la grille.
+    private Random rand = new Random(); 
 
-    private ArrayList<ArrayList<String>> grid = new ArrayList<ArrayList<String>>(); // Cette ligne déclare une variable d'instance qui peut être utilisée pour stocker les données de la grille.
+    private ArrayList<ArrayList<String>> grid = new ArrayList<ArrayList<String>>(); 
 
 
 
 
     /**
      * @author : Aya
-     * @return
+     * @return null
      * Ce constructeur est utilisé pour initialiser une nouvelle grille et la remplir avec des espaces vides.
      */
     public Grille() {
@@ -24,21 +24,20 @@ public class Grille {
                 grid.get(i).add(" ");
             }
         }
-    } // Cette ligne déclare un constructeur pour la classe Grille. Ce constructeur est utilisé pour initialiser une nouvelle grille et la remplir avec des espaces vides.
+    } 
 
 
     /**
-     * @return
-     * La fonction "getGrid()" retourne une ArrayList de l'objet "Grille"
+     * @return ArrayList, retourne la grille 
      */
     public ArrayList<ArrayList<String>> getGrid() {
         return grid;
-    } // Cette ligne déclare une méthode publique qui peut être utilisée pour récupérer les données de la grille.
+    }
 
 
     /**
      * @author : Aya
-     * @return
+     * @return null
      * La fonction "afficherGrille()" affiche la grille dans la console.
      */
     public void afficherGrille() {
@@ -60,14 +59,14 @@ public class Grille {
             System.out.println();
         }
         System.out.println();
-    } // Cette ligne déclare une méthode publique qui peut être utilisée pour afficher la grille dans la console.
+    } 
 
 
     /**
      * @author : Aya
-     * @param symbole
-     * @param column
-     * @return
+     * @param symbole : chaine de caractère représentant la couleur du joueur
+     * @param column : nombre entier représentant le numéro de colonne ou le joueur veut poser son jeton
+     * @return null
      * La fonction "addJeton()" ajoute un jeton à la grille.
      */
     public void addJeton(String symbole, int column) {
@@ -81,13 +80,13 @@ public class Grille {
         } else {
             System.out.println("Vous ne pouvez pas sélectionner cette colonne !");
         }
-    } // Cette ligne déclare une méthode publique qui peut être utilisée pour ajouter un jeton à la grille.
+    } 
 
 
     /**
      * @author : Aya
-     * @param column
-     * @return
+     * @param column : nombre entier représentant le numéro de colonne
+     * @return boolean (true si la colonne est pleine, false sinon)
      * La fonction "colonnePleine()" vérifie si une colonne est pleine.
      */
     public boolean colonnePleine(int column) {
@@ -95,12 +94,12 @@ public class Grille {
             return true;
         }
         return false;
-    } // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si une colonne est pleine.
+    }
 
 
     /**
      * @author : Aya
-     * @return
+     * @return null
      * La fonction "reinitialiserGrille()" réinitialise la grille en remplissant toutes les cases avec des espaces vides.
      */
     public void reinitialiserGrille() {
@@ -109,12 +108,12 @@ public class Grille {
                 grid.get(i).set(j, " ");
             }
         }
-    } // Cette ligne déclare une méthode publique qui peut être utilisée pour réinitialiser la grille en remplissant toutes les cases avec des espaces vides.
+    } 
 
 
     /**
      * @author : Aya
-     * @return
+     * @return boolean (true si la grille est pleine, false sinon)
      * La fonction "grillePleine()" vérifie si la grille est pleine.
      */
     public boolean grillePleine() {
@@ -126,12 +125,12 @@ public class Grille {
             }
         }
         return true;
-    } // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si la grille est pleine.
+    } 
 
 
     /**
      * @author : Aya
-     * @return
+     * @return boolean (true si un joueur a gagné, false sinon)
      * La fonction "gagner()" vérifie si un joueur a gagné.
      */
     public boolean gagner() {
@@ -170,11 +169,11 @@ public class Grille {
             }
         }
         return false;
-    } // Cette ligne déclare une méthode publique qui peut être utilisée pour vérifier si un joueur a gagné.
+    } 
 
     /**
      * @author : Aya
-     * @return
+     * @return nombre entier représentant la colonne choisie par l'IA
      * La fonction "IA1()" permet à l'ordinateur de jouer un coup aléatoire.
      */
     public int IA1(){
@@ -187,9 +186,9 @@ public class Grille {
 
 
     /**
-     * @author : Aya
-     * @param symbol
-     * @return
+     * @author : Aya & Romain
+     * @param symbol : chaine de caractère représentant la couleur de l'IA
+     * @return nombre entier représentant la colonne choisie par l'IA
      * La fonction "IA2()" permet à l'ordinateur de jouer un coup intelligent.
      */
     public int IA2(String symbol) {
@@ -207,7 +206,7 @@ public class Grille {
                     break;
                 }
             }
-        } // Cette ligne déclare une méthode publique qui peut être utilisée pour implémenter l'intelligence artificielle. Elle effectue différents tests pour vérifier si un joueur est sur le point de gagner, et si c'est le cas, elle joue le coup pour l'empêcher de gagner.
+        } 
 
         // test colonne
         for (int j = 0; j < columns; j++) {
@@ -290,9 +289,9 @@ public class Grille {
 
 
     /**
-     * @author : Aya
-     * @param symbol
-     * @return
+     * @author : Aya & Romain
+     * @param symbol : chaine de caractère représentant la couleur de l'IA
+     * @return nombre entier représentant la colonne choisie par l'IA
      * La fonction "IA3()" permet à l'ordinateur de jouer un coup intelligent.
      */
     public int IA3(String symbol){
@@ -329,7 +328,7 @@ public class Grille {
                     addJeton("⚪️", j + 1);
                     col = j + 1;
                     return col;
-                } // Cette ligne déclare une méthode publique qui peut être utilisée pour
+                } 
 
             }
         }
@@ -415,17 +414,11 @@ public class Grille {
         return col;
     }
 
-    /////////////////////////////////////////////////////////////////////////////////
-
-    //////////////////////////////////// IA4
-    //////////////////////////////////// ////////////////////////////////////////
-
-    /////////////////////////////////////////////////////////////////////////////////
-
     /**
-     * @param symbol
-     * @param symbol2
-     * @return
+     * @author Aya & Romain
+     * @param symbol : chaine de caractère qui représente la couleur de l'IA
+     * @param symbol2 : chaine de caractère qui représente la couleur du joueur adverse
+     * @return nombre entier qui représente la colonne où l'IA a joué
      * La fonction IA4 est une IA qui joue en fonction de la position des jetons de l'adversaire
      */
     public int IA4(String symbol, String symbol2) {
@@ -484,10 +477,7 @@ public class Grille {
 
                 }
             }
-        } // Cette ligne déclare une méthode publique qui peut être utilisée pour
-          // implémenter l'intelligence artificielle. Elle effectue différents tests pour
-          // vérifier si un joueur est sur le point de gagner, et si c'est le cas, elle
-          // joue le coup pour l'empêcher de gagner.
+        } 
 
         // test colonne
         for (int j = 0; j < columns; j++) {
@@ -565,6 +555,7 @@ public class Grille {
         return col;
     }
 }
+// cette fonction est un test d'IA 3 faites par Romain mais qui n'a pas fonctionné
 
     // public int IA3(String symbol) {
     //     int col = 0;
