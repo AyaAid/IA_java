@@ -7,74 +7,44 @@ import java.util.List;
 
 public class Menu {
 
-    /**
-     * @return
-     * Cette classe permet de définir le nombre de joueurs et leurs couleurs.
-     */
     private int nbjoueur;
-    static List<String> couleur = new ArrayList<String>(); // Cette ligne déclare une liste statique de chaînes de caractères nommée couleur.
-
-    /**
-     *@return
-     *Cette classe permet de définir le nombre de joueurs et leurs couleurs.
-     */
-    private ArrayList<String> name = new ArrayList<>(); // Cette ligne déclare une variable privée de type ArrayList nommée name.
-
-
-    public static String coul; // Cette ligne déclare une variable publique statique de type chaîne de caractères nommée coul.
-
+    static List<String> couleur = new ArrayList<String>(); 
+    private ArrayList<String> name = new ArrayList<>(); 
+    public static String coul;
 
 
     public Menu() {
-        nbjoueur = getNbjoueur(); // Cette ligne assigne la valeur de retour de la méthode getNbjoueur à la variable nbjoueur.
-
-        couleur = getCouleur(); // Cette ligne assigne la valeur de retour de la méthode getCouleur à la variable couleur.
+        nbjoueur = getNbjoueur(); 
+        couleur = getCouleur(); 
     }
 
-    /**
-     * @return
-     * Cette méthode permet de récupérer le nom du joueur.
-     */
-    public ArrayList<String> getName() { // Cette ligne déclare une méthode publique qui retourne un ArrayList de chaînes de caractères nommé name.
+    public ArrayList<String> getName() { 
         return name;
     }
 
-    public void setName(String nom) { // Cette ligne déclare une méthode publique qui permet d'ajouter un nom à la liste name.
+    public void setName(String nom) { 
         name.add(nom);
     }
 
-    /**
-     * @return
-     * Cette méthode permet de récupérer le nombre de joueurs.
-     */
-    public int getNbjoueur() { // Cette ligne déclare une méthode publique qui retourne un entier nommé nbjoueur.
+    public int getNbjoueur() { 
         return nbjoueur;
     }
 
-    /**
-     * @param nbjoueur
-     * @return
-     * Cette méthode permet de définir le nombre de joueurs.
-     */
-    public void setNbjoueur(int nbjoueur) { // Cette ligne déclare une méthode publique qui permet d'ajouter un nombre de joueur à la variable nbjoueur.
+    public void setNbjoueur(int nbjoueur) { 
         this.nbjoueur = nbjoueur;
     }
 
-    /**
-     * @return
-     * Cette méthode permet de récupérer la couleur du joueur.
-     */
-    public ArrayList<String> getCouleur() { // Cette ligne déclare une méthode publique qui retourne une liste d'ArrayList de chaînes de caractères nommée couleur.
+    public ArrayList<String> getCouleur() { 
         return (ArrayList<String>) couleur;
     } 
 
     /**
      * @author : Aya
-     * @param coul
-     * @return
-     * Cette méthode permet de définir la couleur du joueur.
+     * @param coul : chaine de caractère contenant le choix de couleur du joueur 1
+     * @return none
+     * Cette méthode permet d'enregistrer la couleur du joueur dans la liste couleur.
      */
-    public void setCouleur(String coul) { // Cette ligne déclare une méthode publique qui permet d'ajouter une couleur à la liste couleur.
+    public void setCouleur(String coul) { 
         if(coul.equals("1")){
             couleur.add("🔴");
         }
@@ -86,8 +56,8 @@ public class Menu {
 
     /**
      * @author : Romain et Maël
-     * @param choix
-     * @return
+     * @param choix : chaine de caractère contenant le choix du joueur
+     * @return none
      * Cette méthode permet d'afficher un menu à l'écran en fonction du paramètre choix.
      */
     public void afficherMenu(String choix) { // Cette ligne déclare une méthode publique qui permet d'afficher un menu à l'écran en fonction du paramètre choix.
@@ -134,4 +104,4 @@ else{ // Cette condition permet d'afficher le message "Veuillez choisir une opti
     }
     
 
-} // Cette ligne ferme la condition else.
+} 
