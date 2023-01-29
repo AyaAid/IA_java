@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 
-public class Classement implements Comparable<Classement> {
+public class Classement implements Comparable<Classement> { // déclaration d'un comparateur
     private static final String SEPARATEUR = ";";
     private String name;
     private int move;
@@ -33,6 +33,8 @@ public class Classement implements Comparable<Classement> {
     }
 
     /**
+     * @author Aya & Florent
+     * @return none
      * Enregistre le classement dans le fichier  "classement.csv"
      * @throws IOException
      */
@@ -47,7 +49,7 @@ public class Classement implements Comparable<Classement> {
 
     /**
      * @author: Aya et Florent
-     * @return
+     * @return liste des classements se trouvant dans le fichier classement.csv
      * La fonction "lister()" retourne une ArrayList de l'objet "Classement"
      * @throws IOException
      */
@@ -76,7 +78,7 @@ public class Classement implements Comparable<Classement> {
     /**
      * @author: Aya et Florent
      * @throws IOException
-     * @return
+     * @return none
      * La fonction "listerTop()" retourne les 10 meilleurs scores
      */
     public void listerTop() throws IOException {
@@ -92,15 +94,15 @@ public class Classement implements Comparable<Classement> {
         if(topten.size() >= 10)
             topten.subList(10, topten.size()).clear();
         for (Classement classement : topten) {
-            System.out.println(classement.toString());
+            System.out.println(classement.getName() + " " + classement.getMove());
         }
     }
 
     /**
      * @author: Aya et Florent
-     * @param joueur
-     * @param move
-     * @return 
+     * @param joueur : chaine de caractère représentant le nom du joueur gagnant
+     * @param move : nombre entier représentant le nombre de coup du joueur gagant 
+     * @return none
      * La fonction "ajouterScore()" ajoute le score du joueur dans le fichier "classement.csv"
      */
     public void ajouterScore(String joueur, int move) {
@@ -133,6 +135,7 @@ public class Classement implements Comparable<Classement> {
     };
 
 
+// le code ci-dessous est un test de Florent qui n'a pas fonctionné
 
     // public Classement(String filename) { // Constructeur pour initialiser le nom
     // du fichier CSV
